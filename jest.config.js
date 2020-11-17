@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/state/relay',
     '<rootDir>/libs/state/swr',
     '<rootDir>/libs/state/zustand',
+    '<rootDir>/apps/apis/user',
   ],
 };
