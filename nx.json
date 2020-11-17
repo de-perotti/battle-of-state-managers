@@ -29,6 +29,30 @@
     "hubs/main-e2e": {
       "tags": [],
       "implicitDependencies": ["hubs-main"]
+    },
+    "state-jotai": {
+      "tags": []
+    },
+    "state-mobx": {
+      "tags": []
+    },
+    "state-apollo": {
+      "tags": []
+    },
+    "state-recoil": {
+      "tags": []
+    },
+    "state-redux": {
+      "tags": []
+    },
+    "state-relay": {
+      "tags": []
+    },
+    "state-swr": {
+      "tags": []
+    },
+    "state-zustand": {
+      "tags": []
     }
   }
 }

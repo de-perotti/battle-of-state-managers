@@ -76,6 +76,174 @@
           }
         }
       }
+    },
+    "state-jotai": {
+      "root": "libs/state/jotai",
+      "sourceRoot": "libs/state/jotai/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/jotai/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/jotai/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-mobx": {
+      "root": "libs/state/mobx",
+      "sourceRoot": "libs/state/mobx/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/mobx/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/mobx/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-apollo": {
+      "root": "libs/state/apollo",
+      "sourceRoot": "libs/state/apollo/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/apollo/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/apollo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-recoil": {
+      "root": "libs/state/recoil",
+      "sourceRoot": "libs/state/recoil/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/recoil/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/recoil/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-redux": {
+      "root": "libs/state/redux",
+      "sourceRoot": "libs/state/redux/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/redux/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/redux/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-relay": {
+      "root": "libs/state/relay",
+      "sourceRoot": "libs/state/relay/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/relay/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/relay/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-swr": {
+      "root": "libs/state/swr",
+      "sourceRoot": "libs/state/swr/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/swr/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/swr/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "state-zustand": {
+      "root": "libs/state/zustand",
+      "sourceRoot": "libs/state/zustand/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/state/zustand/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/zustand/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

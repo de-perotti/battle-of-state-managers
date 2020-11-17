@@ -15,7 +15,28 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@battle-of-state-managers/state/jotai": [
+        "libs/state/jotai/src/index.ts"
+      ],
+      "@battle-of-state-managers/state/mobx": ["libs/state/mobx/src/index.ts"],
+      "@battle-of-state-managers/state/apollo": [
+        "libs/state/apollo/src/index.ts"
+      ],
+      "@battle-of-state-managers/state/recoil": [
+        "libs/state/recoil/src/index.ts"
+      ],
+      "@battle-of-state-managers/state/redux": [
+        "libs/state/redux/src/index.ts"
+      ],
+      "@battle-of-state-managers/state/relay": [
+        "libs/state/relay/src/index.ts"
+      ],
+      "@battle-of-state-managers/state/swr": ["libs/state/swr/src/index.ts"],
+      "@battle-of-state-managers/state/zustand": [
+        "libs/state/zustand/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
