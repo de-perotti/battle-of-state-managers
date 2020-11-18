@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/libs/state/swr',
     '<rootDir>/libs/state/zustand',
     '<rootDir>/apps/apis/user',
+    '<rootDir>/libs/state/sweet-state',
   ],
 };

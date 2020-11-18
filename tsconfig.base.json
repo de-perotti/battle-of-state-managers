@@ -35,6 +35,9 @@
       "@battle-of-state-managers/state/swr": ["libs/state/swr/src/index.ts"],
       "@battle-of-state-managers/state/zustand": [
         "libs/state/zustand/src/index.ts"
+      ],
+      "@battle-of-state-managers/state/sweet-state": [
+        "libs/state/sweet-state/src/index.ts"
       ]
     }
   },
