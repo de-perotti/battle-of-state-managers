@@ -24,7 +24,8 @@
   },
   "projects": {
     "hubs-main": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["apis-user"]
     },
     "hubs/main-e2e": {
       "tags": [],

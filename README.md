@@ -73,6 +73,10 @@ nx start
 nx start <app>
 ```
 
+## TODO
+
+- [ ] Add git hooks
+
 --- 
 
 This project was generated using [Nx](https://nx.dev).
