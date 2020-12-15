@@ -1,0 +1,346 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>battle-of-state-managers</title>
+	<meta name="description" content="Documentation for battle-of-state-managers">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">battle-of-state-managers</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>battle-of-state-managers</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#battleofstatemanagers" id="battleofstatemanagers" style="color: inherit; text-decoration: none;">
+					<h1>BattleOfStateManagers</h1>
+				</a>
+				<a href="#goal" id="goal" style="color: inherit; text-decoration: none;">
+					<h2>Goal</h2>
+				</a>
+				<p>This project aims to provide some insight over the available state managers stressing a real world application for state managers.
+				That being a multi-page form with feature flags and authentication on top of it all.</p>
+				<p>What we are trying to achieve here is to analyze how well does each of the state managers scale, how easily can they be tested or better yet how easily can it be extended and understood.</p>
+				<a href="#definition-of-done" id="definition-of-done" style="color: inherit; text-decoration: none;">
+					<h2>Definition of done</h2>
+				</a>
+				<p>The application:</p>
+				<ul>
+					<li>Authenticates a user before allowing for interacting with the forms</li>
+					<li>Provides a multi-page form</li>
+					<li>Has a feature flag in place to allow for unauthenticated users to fill the forms before being prompt to login to submit this form</li>
+					<li>Allows the form to be filled in any sequence the user sees fit</li>
+					<li>Doesn&#39;t necessarily have styling applied to its pages </li>
+				</ul>
+				<a href="#state-managers" id="state-managers" style="color: inherit; text-decoration: none;">
+					<h2>State Managers</h2>
+				</a>
+				<p>As it was mentioned above, we are going to look at a number of state managers, some more well-known than others.
+				The list below can be outdated however we are working on to keep it current:</p>
+				<ul>
+					<li>Apollo</li>
+					<li>Jotai</li>
+					<li>Mobx</li>
+					<li>Recoil</li>
+					<li>Redux</li>
+					<li>Relay</li>
+					<li>Sweet State</li>
+					<li>State While Revalidate</li>
+					<li>Zustand </li>
+				</ul>
+				<p>As each library brings something different to the table, we quickly acknowledge the need to adapt the architecture to each of its needs.
+				We take this opportunity to understand how we can better decouple react applications from state management or, better yet, how to bring already existing best practices for backend applications such as dependency injection, SOLID, SOC, and others.</p>
+				<p>Please notice we are not trying to reinvent or discover design patterns, yet we want to experiment how best can those techniques fit into featureful frontend applications.</p>
+				<a href="#best-fit-criteria" id="best-fit-criteria" style="color: inherit; text-decoration: none;">
+					<h2>Best-fit criteria</h2>
+				</a>
+				<p>The state managers will be scored according to the criteria below.
+					These are initially some direct pains our team is going through went working with redux on a large scale and complex application.
+					There are more than two teams working directly on that application, so the most important aspects of the state manager should be simplicity and readability.
+					Testability and performance are next.
+					Finally, it&#39;s important to check if the library allows for complex behaviors such as an event driven architecture such as what we can do with redux-saga.
+				Only then we want to see how easily swappable is the library also how generic can we make of its usage. </p>
+				<p>In descending order of evaluation criteria:</p>
+				<ul>
+					<li>Readability</li>
+					<li>Simplicity</li>
+					<li>Separation of Concerns (Domain Driven Design affinity / modelling)</li>
+					<li>Testability</li>
+					<li>Performance</li>
+					<li>Lazy-loading capability</li>
+					<li>Swappable</li>
+					<li>Generality</li>
+				</ul>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>Since architecture is going to be secondary to this experiment, we&#39;ll try to keep its documentation directly in the code through the use of <a href="https://typedoc.org/"><code>typedocs</code></a> and <a href="https://kamiazya.github.io/typedoc-plugin-mermaid/"><code>mermaidjs</code></a>.</p>
+				<hr>
+				<p>This project was generated using <a href="https://nx.dev">Nx</a>.</p>
+				<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+				<p>🔎 <strong>Nx is a set of Extensible Dev Tools for Monorepos.</strong></p>
+				<a href="#adding-capabilities-to-your-workspace" id="adding-capabilities-to-your-workspace" style="color: inherit; text-decoration: none;">
+					<h2>Adding capabilities to your workspace</h2>
+				</a>
+				<p>Nx supports many plugins which add capabilities for developing different types of applications and different tools.</p>
+				<p>These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.</p>
+				<p>Below are our core plugins:</p>
+				<ul>
+					<li><a href="https://reactjs.org">React</a><ul>
+							<li><code>npm install --save-dev @nrwl/react</code></li>
+						</ul>
+					</li>
+					<li>Web (no framework frontends)<ul>
+							<li><code>npm install --save-dev @nrwl/web</code></li>
+						</ul>
+					</li>
+					<li><a href="https://angular.io">Angular</a><ul>
+							<li><code>npm install --save-dev @nrwl/angular</code></li>
+						</ul>
+					</li>
+					<li><a href="https://nestjs.com">Nest</a><ul>
+							<li><code>npm install --save-dev @nrwl/nest</code></li>
+						</ul>
+					</li>
+					<li><a href="https://expressjs.com">Express</a><ul>
+							<li><code>npm install --save-dev @nrwl/express</code></li>
+						</ul>
+					</li>
+					<li><a href="https://nodejs.org">Node</a><ul>
+							<li><code>npm install --save-dev @nrwl/node</code></li>
+						</ul>
+					</li>
+				</ul>
+				<p>There are also many <a href="https://nx.dev/nx-community">community plugins</a> you could add.</p>
+				<a href="#generate-an-application" id="generate-an-application" style="color: inherit; text-decoration: none;">
+					<h2>Generate an application</h2>
+				</a>
+				<p>Run <code>nx g @nrwl/react:app my-app</code> to generate an application.</p>
+				<blockquote>
+					<p>You can use any of the plugins above to generate applications as well.</p>
+				</blockquote>
+				<p>When using Nx, you can create multiple applications and libraries in the same workspace.</p>
+				<a href="#generate-a-library" id="generate-a-library" style="color: inherit; text-decoration: none;">
+					<h2>Generate a library</h2>
+				</a>
+				<p>Run <code>nx g @nrwl/react:lib my-lib</code> to generate a library.</p>
+				<blockquote>
+					<p>You can also use any of the plugins above to generate libraries as well.</p>
+				</blockquote>
+				<p>Libraries are sharable across libraries and applications. They can be imported from <code>@battle-of-state-managers/mylib</code>.</p>
+				<a href="#development-server" id="development-server" style="color: inherit; text-decoration: none;">
+					<h2>Development server</h2>
+				</a>
+				<p>Run <code>nx serve my-app</code> for a dev server. Navigate to <a href="http://localhost:4200/">http://localhost:4200/</a>. The app will automatically reload if you change any of the source files.</p>
+				<a href="#code-scaffolding" id="code-scaffolding" style="color: inherit; text-decoration: none;">
+					<h2>Code scaffolding</h2>
+				</a>
+				<p>Run <code>nx g @nrwl/react:component my-component --project=my-app</code> to generate a new component.</p>
+				<a href="#build" id="build" style="color: inherit; text-decoration: none;">
+					<h2>Build</h2>
+				</a>
+				<p>Run <code>nx build my-app</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
+				<a href="#running-unit-tests" id="running-unit-tests" style="color: inherit; text-decoration: none;">
+					<h2>Running unit tests</h2>
+				</a>
+				<p>Run <code>nx test my-app</code> to execute the unit tests via <a href="https://jestjs.io">Jest</a>.</p>
+				<p>Run <code>nx affected:test</code> to execute the unit tests affected by a change.</p>
+				<a href="#running-end-to-end-tests" id="running-end-to-end-tests" style="color: inherit; text-decoration: none;">
+					<h2>Running end-to-end tests</h2>
+				</a>
+				<p>Run <code>ng e2e my-app</code> to execute the end-to-end tests via <a href="https://www.cypress.io">Cypress</a>.</p>
+				<p>Run <code>nx affected:e2e</code> to execute the end-to-end tests affected by a change.</p>
+				<a href="#understand-your-workspace" id="understand-your-workspace" style="color: inherit; text-decoration: none;">
+					<h2>Understand your workspace</h2>
+				</a>
+				<p>Run <code>nx dep-graph</code> to see a diagram of the dependencies of your projects.</p>
+				<a href="#further-help" id="further-help" style="color: inherit; text-decoration: none;">
+					<h2>Further help</h2>
+				</a>
+				<p>Visit the <a href="https://nx.dev">Nx Documentation</a> to learn more.</p>
+				<a href="#☁-nx-cloud" id="☁-nx-cloud" style="color: inherit; text-decoration: none;">
+					<h2>☁ Nx Cloud</h2>
+				</a>
+				<a href="#computation-memoization-in-the-cloud" id="computation-memoization-in-the-cloud" style="color: inherit; text-decoration: none;">
+					<h3>Computation Memoization in the Cloud</h3>
+				</a>
+				<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+				<p>Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.</p>
+				<p>Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.</p>
+				<p>Visit <a href="https://nx.app/">Nx Cloud</a> to learn more.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/cypress.html">Cypress</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/appcontroller.html" class="tsd-kind-icon">App<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/appmodule.html" class="tsd-kind-icon">App<wbr>Module</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/appservice.html" class="tsd-kind-icon">App<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/stateapolloprops.html" class="tsd-kind-icon">State<wbr>Apollo<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/statejotaiprops.html" class="tsd-kind-icon">State<wbr>Jotai<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/statemobxprops.html" class="tsd-kind-icon">State<wbr>Mobx<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/staterecoilprops.html" class="tsd-kind-icon">State<wbr>Recoil<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/statereduxprops.html" class="tsd-kind-icon">State<wbr>Redux<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/staterelayprops.html" class="tsd-kind-icon">State<wbr>Relay<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/statesweetstateprops.html" class="tsd-kind-icon">State<wbr>Sweet<wbr>State<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/stateswrprops.html" class="tsd-kind-icon">State<wbr>Swr<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/statezustandprops.html" class="tsd-kind-icon">State<wbr>Zustand<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#customapp" class="tsd-kind-icon">Custom<wbr>App</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#index" class="tsd-kind-icon">Index</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#stateapollo" class="tsd-kind-icon">State<wbr>Apollo</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#statejotai" class="tsd-kind-icon">State<wbr>Jotai</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#statemobx" class="tsd-kind-icon">State<wbr>Mobx</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#staterecoil" class="tsd-kind-icon">State<wbr>Recoil</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#stateredux" class="tsd-kind-icon">State<wbr>Redux</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#staterelay" class="tsd-kind-icon">State<wbr>Relay</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#statesweetstate" class="tsd-kind-icon">State<wbr>Sweet<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#stateswr" class="tsd-kind-icon">State<wbr>Swr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#statezustand" class="tsd-kind-icon">State<wbr>Zustand</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getgreeting" class="tsd-kind-icon">get<wbr>Greeting</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#environment" class="tsd-kind-icon">environment</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script
+src="https://unpkg.com/mermaid/dist/mermaid.min.js"
+></script>
+<script>
+    mermaid.initialize({
+      startOnLoad: true,
+    });
+    </script>
+</body>
+</html>

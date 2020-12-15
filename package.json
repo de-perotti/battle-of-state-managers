@@ -23,7 +23,8 @@
     "update": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "gen:docs": "rimraf docs && typedoc --tsconfig tsconfig.base.json --mode file --ignoreCompilerErrors --exclude \"**/*+(.spec|.e2e).(ts|tsx|js|jsx)\" apps libs tools"
   },
   "private": true,
   "dependencies": {
@@ -78,9 +79,12 @@
     "jest": "26.2.2",
     "node-sass": "4.14.1",
     "prettier": "2.1.2",
+    "rimraf": "^3.0.2",
     "ts-jest": "26.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
+    "typedoc": "^0.19.2",
+    "typedoc-plugin-mermaid": "^1.3.0",
     "typescript": "~4.0.3"
   }
 }

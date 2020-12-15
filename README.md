@@ -1,5 +1,66 @@
 # BattleOfStateManagers
 
+## Goal
+
+This project aims to provide some insight over the available state managers stressing a real world application for state managers.
+That being a multi-page form with feature flags and authentication on top of it all.
+
+What we are trying to achieve here is to analyze how well does each of the state managers scale, how easily can they be tested or better yet how easily can it be extended and understood.
+
+## Definition of done
+
+The application:
+- Authenticates a user before allowing for interacting with the forms
+- Provides a multi-page form
+- Has a feature flag in place to allow for unauthenticated users to fill the forms before being prompt to login to submit this form
+- Allows the form to be filled in any sequence the user sees fit
+- Doesn't necessarily have styling applied to its pages 
+
+## State Managers
+
+As it was mentioned above, we are going to look at a number of state managers, some more well-known than others.
+The list below can be outdated however we are working on to keep it current:
+
+- Apollo
+- Jotai
+- Mobx
+- Recoil
+- Redux
+- Relay
+- Sweet State
+- State While Revalidate
+- Zustand 
+
+As each library brings something different to the table, we quickly acknowledge the need to adapt the architecture to each of its needs.
+We take this opportunity to understand how we can better decouple react applications from state management or, better yet, how to bring already existing best practices for backend applications such as dependency injection, SOLID, SOC, and others.
+
+Please notice we are not trying to reinvent or discover design patterns, yet we want to experiment how best can those techniques fit into featureful frontend applications.
+
+## Best-fit criteria
+
+The state managers will be scored according to the criteria below.
+These are initially some direct pains our team is going through went working with redux on a large scale and complex application.
+There are more than two teams working directly on that application, so the most important aspects of the state manager should be simplicity and readability.
+Testability and performance are next.
+Finally, it's important to check if the library allows for complex behaviors such as an event driven architecture such as what we can do with redux-saga.
+Only then we want to see how easily swappable is the library also how generic can we make of its usage. 
+
+In descending order of evaluation criteria:
+- Readability
+- Simplicity
+- Separation of Concerns (Domain Driven Design affinity / modelling)
+- Testability
+- Performance
+- Lazy-loading capability
+- Swappable
+- Generality
+
+## Documentation
+
+Since architecture is going to be secondary to this experiment, we'll try to keep its documentation directly in the code through the use of [`typedocs`](https://typedoc.org/) and [`mermaidjs`](https://kamiazya.github.io/typedoc-plugin-mermaid/).
+
+--- 
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
