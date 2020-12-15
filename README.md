@@ -59,6 +59,20 @@ In descending order of evaluation criteria:
 
 Since architecture is going to be secondary to this experiment, we'll try to keep its documentation directly in the code through the use of [`typedocs`](https://typedoc.org/) and [`mermaidjs`](https://kamiazya.github.io/typedoc-plugin-mermaid/).
 
+## Commands
+
+- Running apps:
+
+```shell
+# Starts all applications
+nx start
+
+# Starts only <app>
+# Please note that applications are in the format hubs-<application> or apis-<application>
+# Refer to nx.json:projects object
+nx start <app>
+```
+
 --- 
 
 This project was generated using [Nx](https://nx.dev).

@@ -24,7 +24,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "gen:docs": "rimraf docs && typedoc --tsconfig tsconfig.base.json --mode file --ignoreCompilerErrors --exclude \"**/*+(.spec|.e2e).(ts|tsx|js|jsx)\" apps libs tools"
+    "gen:docs": "rimraf docs && typedoc --tsconfig tsconfig.base.json --mode file --ignoreCompilerErrors --exclude \"**/*+(.spec|.e2e).(ts|tsx|js|jsx)\" apps libs tools",
+    "serve:hubs:main": "nx run hubs-main:serve-with-services"
   },
   "private": true,
   "dependencies": {
