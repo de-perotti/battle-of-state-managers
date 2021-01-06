@@ -13,10 +13,7 @@
           "options": {
             "outputPath": "dist/apps/apis/user",
             "main": "apps/apis/user/src/main.ts",
-            "tsConfig": "apps/apis/user/tsconfig.app.json",
-            "assets": [
-              "apps/apis/user/src/assets"
-            ]
+            "tsConfig": "apps/apis/user/tsconfig.app.json"
           },
           "configurations": {
             "production": {
@@ -25,8 +22,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/apis/user/src/environments/environment.ts",
-                  "with": "apps/apis/user/src/environments/environment.prod.ts"
+                  "replace": "apps/apis/user/src/core/configuration/environments/environment.ts",
+                  "with": "apps/apis/user/src/core/configuration/environments/environment.prod.ts"
                 }
               ]
             }

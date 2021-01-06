@@ -1,0 +1,27 @@
+services:
+  hubs-main:
+    build:
+      context: .
+    image: battle-of-state-managers
+    depends_on:
+      apis-user-db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+
+  apis-user-db:
+    image: postgres:12-alpine
+    # https://github.com/peter-evans/docker-compose-healthcheck
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: api_development
+    volumes:
+      - /var/lib/postgresql/data
