@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AppService | battle-of-state-managers</title>
+	<title>AuthenticatedGuard | battle-of-state-managers</title>
 	<meta name="description" content="Documentation for battle-of-state-managers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="appservice.html">AppService</a>
+					<a href="authenticatedguard.html">AuthenticatedGuard</a>
 				</li>
 			</ul>
-			<h1>Class AppService</h1>
+			<h1>Class AuthenticatedGuard</h1>
 		</div>
 	</div>
 </header>
@@ -70,8 +70,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AppService</span>
+						<span class="target">AuthenticatedGuard</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><span class="tsd-signature-type">CanActivate</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -81,7 +87,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="appservice.html#getdata" class="tsd-kind-icon">get<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="authenticatedguard.html#canactivate" class="tsd-kind-icon">can<wbr>Activate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -90,24 +96,25 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getdata" class="tsd-anchor"></a>
-					<h3>get<wbr>Data</h3>
+					<a name="canactivate" class="tsd-anchor"></a>
+					<h3>can<wbr>Activate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">can<wbr>Activate<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ExecutionContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/92d48f4/apps/apis/user/src/app/app.service.ts#L5">apps/apis/user/src/app/app.service.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/0b746a6/apps/apis/user/src/core/authentication/guards/authenticated.guard.ts#L6">apps/apis/user/src/core/authentication/guards/authenticated.guard.ts:6</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
-								<li class="tsd-parameter">
-									<h5>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+								<li>
+									<h5>context: <span class="tsd-signature-type">ExecutionContext</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -123,90 +130,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="appcontroller.html" class="tsd-kind-icon">App<wbr>Controller</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="appmodule.html" class="tsd-kind-icon">App<wbr>Module</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="appservice.html" class="tsd-kind-icon">App<wbr>Service</a>
+						<a href="authenticatedguard.html" class="tsd-kind-icon">Authenticated<wbr>Guard</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="appservice.html#getdata" class="tsd-kind-icon">get<wbr>Data</a>
+								<a href="authenticatedguard.html#canactivate" class="tsd-kind-icon">can<wbr>Activate</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/stateapolloprops.html" class="tsd-kind-icon">State<wbr>Apollo<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/statejotaiprops.html" class="tsd-kind-icon">State<wbr>Jotai<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/statemobxprops.html" class="tsd-kind-icon">State<wbr>Mobx<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/staterecoilprops.html" class="tsd-kind-icon">State<wbr>Recoil<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/statereduxprops.html" class="tsd-kind-icon">State<wbr>Redux<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/staterelayprops.html" class="tsd-kind-icon">State<wbr>Relay<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/statesweetstateprops.html" class="tsd-kind-icon">State<wbr>Sweet<wbr>State<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/stateswrprops.html" class="tsd-kind-icon">State<wbr>Swr<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/statezustandprops.html" class="tsd-kind-icon">State<wbr>Zustand<wbr>Props</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#customapp" class="tsd-kind-icon">Custom<wbr>App</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#index" class="tsd-kind-icon">Index</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#stateapollo" class="tsd-kind-icon">State<wbr>Apollo</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#statejotai" class="tsd-kind-icon">State<wbr>Jotai</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#statemobx" class="tsd-kind-icon">State<wbr>Mobx</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#staterecoil" class="tsd-kind-icon">State<wbr>Recoil</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#stateredux" class="tsd-kind-icon">State<wbr>Redux</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#staterelay" class="tsd-kind-icon">State<wbr>Relay</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#statesweetstate" class="tsd-kind-icon">State<wbr>Sweet<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#stateswr" class="tsd-kind-icon">State<wbr>Swr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#statezustand" class="tsd-kind-icon">State<wbr>Zustand</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#getgreeting" class="tsd-kind-icon">get<wbr>Greeting</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#environment" class="tsd-kind-icon">environment</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -218,10 +153,17 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
 			</ul>
 		</div>
 	</div>

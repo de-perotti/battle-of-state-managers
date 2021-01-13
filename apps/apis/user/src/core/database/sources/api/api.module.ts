@@ -1,4 +1,8 @@
 import { Module } from '@nestjs/common';
+import { OrmModule } from './orm.module';
+import { ConnectionModule } from './connection.module';
 
-@Module({})
+@Module({
+  imports: [OrmModule, ConnectionModule],
+})
 export class ApiModule {}

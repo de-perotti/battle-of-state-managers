@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AccountController } from './account-management.controller';
+import { AccountController } from './account.controller';
 
 @Module({
   controllers: [AccountController],

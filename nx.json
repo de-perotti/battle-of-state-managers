@@ -27,7 +27,7 @@
       "tags": [],
       "implicitDependencies": ["apis-user"]
     },
-    "hubs/main-e2e": {
+    "hubs-main-e2e": {
       "tags": [],
       "implicitDependencies": ["hubs-main"]
     },

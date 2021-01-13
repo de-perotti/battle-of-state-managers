@@ -69,6 +69,12 @@ In descending order of evaluation criteria:
 
 Since architecture is going to be secondary to this experiment, we'll try to keep its documentation directly in the code through the use of [`typedocs`](https://typedoc.org/) and [`mermaidjs`](https://kamiazya.github.io/typedoc-plugin-mermaid/).
 
+## TODO
+
+- [ ] Add git hooks
+
+# Development
+
 ## Commands
 
 - Running apps:
@@ -78,9 +84,19 @@ Since architecture is going to be secondary to this experiment, we'll try to kee
 yarn serve:hubs:main
 ```
 
-## TODO
+- Migrations
 
-- [ ] Add git hooks
+```shell
+# Running migrations on api
+yarn typeorm migration:run -f apps/apis/user/src/core/database/sources/api/ormconfig.json -c API_DATABASE
+
+# Verifying if models are compatible with migrations
+yarn typeorm schema:log -f apps/apis/user/src/core/database/sources/api/ormconfig.json -c API_DATABASE
+
+# Drops table the connection targets
+yarn typeorm schema:drop -f apps/apis/user/src/core/database/sources/api/ormconfig.json -c API_DATABASE
+```
+
 
 --- 
 

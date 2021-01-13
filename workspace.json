@@ -119,7 +119,7 @@
         }
       }
     },
-    "hubs/main-e2e": {
+    "hubs-main-e2e": {
       "root": "apps/hubs/main-e2e",
       "sourceRoot": "apps/hubs/main-e2e/src",
       "projectType": "application",
