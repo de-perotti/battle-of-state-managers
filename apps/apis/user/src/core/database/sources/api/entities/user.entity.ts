@@ -7,7 +7,8 @@ import {
   ManyToOne,
   PrimaryColumn,
 } from 'typeorm';
-import { Person } from '../person.entity';
+import { Person } from './person.entity';
+import { SaltService } from '../../../../encryption/salt/salt.service';
 
 @Entity('users')
 export class User extends BaseEntity {
@@ -31,4 +32,11 @@ export class User extends BaseEntity {
   })
   @JoinColumn({ name: 'person_id' })
   person: Promise<Person>;
+
+  async comparePassword(
+    password: string,
+    saltService: SaltService
+  ): Promise<boolean> {
+    return saltService.compare(password, this.password);
+  }
 }

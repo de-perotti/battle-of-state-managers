@@ -1,5 +1,11 @@
-import { Controller, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { JwtGuard } from './jwt/jwt.guard';
 
-@UseGuards()
 @Controller('account')
-export class AccountController {}
+@UseGuards(JwtGuard)
+export class AccountController {
+  @Get()
+  sendHi() {
+    return 'hi';
+  }
+}

@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./apps/apis/user/src/app.config.ts":
+/*!******************************************!*\
+  !*** ./apps/apis/user/src/app.config.ts ***!
+  \******************************************/
+/*! exports provided: appConfig */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appConfig", function() { return appConfig; });
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_toFinite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/toFinite */ "lodash/toFinite");
+/* harmony import */ var lodash_toFinite__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_toFinite__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const appConfig = Object(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__["registerAs"])('app', () => ({
+    port: lodash_toFinite__WEBPACK_IMPORTED_MODULE_1___default()(process.env.PORT) || 3333,
+}));
+
+
+/***/ }),
+
 /***/ "./apps/apis/user/src/app.module.ts":
 /*!******************************************!*\
   !*** ./apps/apis/user/src/app.module.ts ***!
@@ -102,73 +125,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/core.module */ "./apps/apis/user/src/core/core.module.ts");
 /* harmony import */ var _features_account_account_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./features/account/account.module */ "./apps/apis/user/src/features/account/account.module.ts");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _app_config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.config */ "./apps/apis/user/src/app.config.ts");
+/* harmony import */ var cookie_parser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! cookie-parser */ "cookie-parser");
+/* harmony import */ var cookie_parser__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(cookie_parser__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
 
 
 
 
 let AppModule = class AppModule {
+    configure(consumer) {
+        consumer.apply(cookie_parser__WEBPACK_IMPORTED_MODULE_6__());
+    }
 };
-AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
-        imports: [_core_core_module__WEBPACK_IMPORTED_MODULE_2__["CoreModule"], _features_account_account_module__WEBPACK_IMPORTED_MODULE_3__["AccountModule"]],
+        imports: [_core_core_module__WEBPACK_IMPORTED_MODULE_2__["CoreModule"], _nestjs_config__WEBPACK_IMPORTED_MODULE_4__["ConfigModule"].forFeature(_app_config__WEBPACK_IMPORTED_MODULE_5__["appConfig"]), _features_account_account_module__WEBPACK_IMPORTED_MODULE_3__["AccountModule"]],
     })
 ], AppModule);
-
-
-
-/***/ }),
-
-/***/ "./apps/apis/user/src/core/authentication/authentication.controller.ts":
-/*!*****************************************************************************!*\
-  !*** ./apps/apis/user/src/core/authentication/authentication.controller.ts ***!
-  \*****************************************************************************/
-/*! exports provided: AuthenticationController */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationController", function() { return AuthenticationController; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-
-
-let AuthenticationController = class AuthenticationController {
-};
-AuthenticationController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('authentication')
-], AuthenticationController);
-
-
-
-/***/ }),
-
-/***/ "./apps/apis/user/src/core/authentication/authentication.module.ts":
-/*!*************************************************************************!*\
-  !*** ./apps/apis/user/src/core/authentication/authentication.module.ts ***!
-  \*************************************************************************/
-/*! exports provided: AuthenticationModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationModule", function() { return AuthenticationModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _authentication_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authentication.controller */ "./apps/apis/user/src/core/authentication/authentication.controller.ts");
-
-
-
-let AuthenticationModule = class AuthenticationModule {
-};
-AuthenticationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
-        controllers: [_authentication_controller__WEBPACK_IMPORTED_MODULE_2__["AuthenticationController"]],
-    })
-], AuthenticationModule);
 
 
 
@@ -188,12 +166,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 let ConfigurationModule = class ConfigurationModule {
 };
-ConfigurationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({})
+ConfigurationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
+        imports: [
+            _nestjs_config__WEBPACK_IMPORTED_MODULE_2__["ConfigModule"].forRoot({
+                envFilePath: ['.env'],
+            }),
+        ],
+    })
 ], ConfigurationModule);
 
 
@@ -214,12 +201,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _authentication_authentication_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authentication/authentication.module */ "./apps/apis/user/src/core/authentication/authentication.module.ts");
-/* harmony import */ var _database_database_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./database/database.module */ "./apps/apis/user/src/core/database/database.module.ts");
-/* harmony import */ var _health_health_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./health/health.module */ "./apps/apis/user/src/core/health/health.module.ts");
-/* harmony import */ var _observability_observability_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./observability/observability.module */ "./apps/apis/user/src/core/observability/observability.module.ts");
-/* harmony import */ var _configuration_configuration_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./configuration/configuration.module */ "./apps/apis/user/src/core/configuration/configuration.module.ts");
-/* harmony import */ var _metrics_metrics_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./metrics/metrics.module */ "./apps/apis/user/src/core/metrics/metrics.module.ts");
+/* harmony import */ var _database_database_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./database/database.module */ "./apps/apis/user/src/core/database/database.module.ts");
+/* harmony import */ var _health_health_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./health/health.module */ "./apps/apis/user/src/core/health/health.module.ts");
+/* harmony import */ var _observability_observability_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./observability/observability.module */ "./apps/apis/user/src/core/observability/observability.module.ts");
+/* harmony import */ var _configuration_configuration_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./configuration/configuration.module */ "./apps/apis/user/src/core/configuration/configuration.module.ts");
+/* harmony import */ var _metrics_metrics_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./metrics/metrics.module */ "./apps/apis/user/src/core/metrics/metrics.module.ts");
+/* harmony import */ var _encryption_encryption_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./encryption/encryption.module */ "./apps/apis/user/src/core/encryption/encryption.module.ts");
 
 
 
@@ -230,15 +217,15 @@ __webpack_require__.r(__webpack_exports__);
 
 let CoreModule = class CoreModule {
 };
-CoreModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         imports: [
-            _authentication_authentication_module__WEBPACK_IMPORTED_MODULE_2__["AuthenticationModule"],
-            _database_database_module__WEBPACK_IMPORTED_MODULE_3__["DatabaseModule"],
-            _health_health_module__WEBPACK_IMPORTED_MODULE_4__["HealthModule"],
-            _observability_observability_module__WEBPACK_IMPORTED_MODULE_5__["ObservabilityModule"],
-            _configuration_configuration_module__WEBPACK_IMPORTED_MODULE_6__["ConfigurationModule"],
-            _metrics_metrics_module__WEBPACK_IMPORTED_MODULE_7__["MetricsModule"],
+            _database_database_module__WEBPACK_IMPORTED_MODULE_2__["DatabaseModule"],
+            _health_health_module__WEBPACK_IMPORTED_MODULE_3__["HealthModule"],
+            _observability_observability_module__WEBPACK_IMPORTED_MODULE_4__["ObservabilityModule"],
+            _configuration_configuration_module__WEBPACK_IMPORTED_MODULE_5__["ConfigurationModule"],
+            _metrics_metrics_module__WEBPACK_IMPORTED_MODULE_6__["MetricsModule"],
+            _encryption_encryption_module__WEBPACK_IMPORTED_MODULE_7__["EncryptionModule"],
         ],
     })
 ], CoreModule);
@@ -267,7 +254,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let DatabaseModule = class DatabaseModule {
 };
-DatabaseModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+DatabaseModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         imports: [_sources_api_api_module__WEBPACK_IMPORTED_MODULE_2__["ApiModule"]],
     })
@@ -293,15 +280,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _orm_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./orm.module */ "./apps/apis/user/src/core/database/sources/api/orm.module.ts");
 /* harmony import */ var _connection_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./connection.module */ "./apps/apis/user/src/core/database/sources/api/connection.module.ts");
+/* harmony import */ var _subscribers_user_subscriber__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subscribers/user.subscriber */ "./apps/apis/user/src/core/database/sources/api/subscribers/user.subscriber.ts");
+/* harmony import */ var _encryption_encryption_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../encryption/encryption.module */ "./apps/apis/user/src/core/encryption/encryption.module.ts");
+
+
 
 
 
 
 let ApiModule = class ApiModule {
 };
-ApiModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+ApiModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
-        imports: [_orm_module__WEBPACK_IMPORTED_MODULE_2__["OrmModule"], _connection_module__WEBPACK_IMPORTED_MODULE_3__["ConnectionModule"]],
+        imports: [_encryption_encryption_module__WEBPACK_IMPORTED_MODULE_5__["EncryptionModule"], _orm_module__WEBPACK_IMPORTED_MODULE_2__["OrmModule"], _connection_module__WEBPACK_IMPORTED_MODULE_3__["ConnectionModule"]],
+        providers: [_subscribers_user_subscriber__WEBPACK_IMPORTED_MODULE_4__["UserSubscriber"]],
     })
 ], ApiModule);
 
@@ -329,7 +321,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let ConnectionModule = class ConnectionModule {
 };
-ConnectionModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+ConnectionModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         providers: [_connection_provider__WEBPACK_IMPORTED_MODULE_2__["ConnectionProvider"]],
         exports: [_connection_provider__WEBPACK_IMPORTED_MODULE_2__["ConnectionProvider"]],
@@ -358,12 +350,8 @@ __webpack_require__.r(__webpack_exports__);
 var _ormconfig_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./ormconfig.json */ "./apps/apis/user/src/core/database/sources/api/ormconfig.json", 1);
 /* harmony import */ var _migrations_1610493939987_CreatePersonsTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./migrations/1610493939987-CreatePersonsTable */ "./apps/apis/user/src/core/database/sources/api/migrations/1610493939987-CreatePersonsTable.ts");
 /* harmony import */ var _migrations_1610494267701_CreateUsersTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./migrations/1610494267701-CreateUsersTable */ "./apps/apis/user/src/core/database/sources/api/migrations/1610494267701-CreateUsersTable.ts");
-/* harmony import */ var _migrations_1610497375029_CreateSessionTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./migrations/1610497375029-CreateSessionTable */ "./apps/apis/user/src/core/database/sources/api/migrations/1610497375029-CreateSessionTable.ts");
-/* harmony import */ var _entities_person_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/person.entity */ "./apps/apis/user/src/core/database/sources/api/entities/person.entity.ts");
-/* harmony import */ var _entities_user_user_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./entities/user/user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user/user.entity.ts");
-/* harmony import */ var _entities_session_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./entities/session.entity */ "./apps/apis/user/src/core/database/sources/api/entities/session.entity.ts");
-
-
+/* harmony import */ var _entities_person_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./entities/person.entity */ "./apps/apis/user/src/core/database/sources/api/entities/person.entity.ts");
+/* harmony import */ var _entities_user_entity__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./entities/user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts");
 
 
 
@@ -373,14 +361,13 @@ var _ormconfig_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webp
 
 let ConnectionProvider = class ConnectionProvider {
     constructor() {
-        this.config = Object.assign(Object.assign({}, _ormconfig_json__WEBPACK_IMPORTED_MODULE_2__), { migrations: [
+        this.config = Object.assign({}, _ormconfig_json__WEBPACK_IMPORTED_MODULE_2__, { migrations: [
                 _migrations_1610493939987_CreatePersonsTable__WEBPACK_IMPORTED_MODULE_3__["CreatePersonsTable1610493939987"],
                 _migrations_1610494267701_CreateUsersTable__WEBPACK_IMPORTED_MODULE_4__["CreateUsersTable1610494267701"],
-                _migrations_1610497375029_CreateSessionTable__WEBPACK_IMPORTED_MODULE_5__["CreateSessionTable1610497375029"],
-            ], entities: [_entities_person_entity__WEBPACK_IMPORTED_MODULE_6__["Person"], _entities_user_user_entity__WEBPACK_IMPORTED_MODULE_7__["User"], _entities_session_entity__WEBPACK_IMPORTED_MODULE_8__["Session"]] });
+            ], entities: [_entities_person_entity__WEBPACK_IMPORTED_MODULE_5__["Person"], _entities_user_entity__WEBPACK_IMPORTED_MODULE_6__["User"]] });
     }
 };
-ConnectionProvider = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+ConnectionProvider = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
 ], ConnectionProvider);
 
@@ -402,27 +389,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _user_user_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user/user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user/user.entity.ts");
-var _a;
+/* harmony import */ var _user_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts");
 
+var _a;
 
 
 let Person = class Person {
 };
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryColumn"])({ type: 'uuid' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
 ], Person.prototype, "id", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Index"])(),
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])({ name: 'name', type: 'varchar', length: 256 }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
 ], Person.prototype, "name", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToMany"])(() => _user_user_entity__WEBPACK_IMPORTED_MODULE_2__["User"], (user) => user.person, { lazy: true }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["OneToMany"])(() => _user_entity__WEBPACK_IMPORTED_MODULE_2__["User"], (user) => user.person, { lazy: true }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
 ], Person.prototype, "users", void 0);
-Person = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+Person = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])('persons')
 ], Person);
 
@@ -430,62 +417,10 @@ Person = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "./apps/apis/user/src/core/database/sources/api/entities/session.entity.ts":
-/*!*********************************************************************************!*\
-  !*** ./apps/apis/user/src/core/database/sources/api/entities/session.entity.ts ***!
-  \*********************************************************************************/
-/*! exports provided: Session */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Session", function() { return Session; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-var _a, _b;
-
-
-let Session = class Session {
-};
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryColumn"])({ type: 'uuid' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
-], Session.prototype, "id", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Index"])(),
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])({ name: 'user_id', type: 'uuid', nullable: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
-], Session.prototype, "userId", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])({
-        name: 'expires_at',
-        type: 'timestamp with time zone',
-        nullable: false,
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
-], Session.prototype, "expiresAt", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["CreateDateColumn"])({
-        name: 'created_at',
-        type: 'timestamp with time zone',
-        nullable: false,
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", typeof (_b = typeof Date !== "undefined" && Date) === "function" ? _b : Object)
-], Session.prototype, "createdAt", void 0);
-Session = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])('sessions')
-], Session);
-
-
-
-/***/ }),
-
-/***/ "./apps/apis/user/src/core/database/sources/api/entities/user/user.entity.ts":
-/*!***********************************************************************************!*\
-  !*** ./apps/apis/user/src/core/database/sources/api/entities/user/user.entity.ts ***!
-  \***********************************************************************************/
+/***/ "./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts":
+/*!******************************************************************************!*\
+  !*** ./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts ***!
+  \******************************************************************************/
 /*! exports provided: User */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -496,40 +431,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
 /* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _person_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../person.entity */ "./apps/apis/user/src/core/database/sources/api/entities/person.entity.ts");
+/* harmony import */ var _person_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./person.entity */ "./apps/apis/user/src/core/database/sources/api/entities/person.entity.ts");
+
 var _a;
 
 
-
 let User = class User extends typeorm__WEBPACK_IMPORTED_MODULE_1__["BaseEntity"] {
+    comparePassword(password, saltService) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            return saltService.compare(password, this.password);
+        });
+    }
 };
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["PrimaryColumn"])({ type: 'uuid' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
 ], User.prototype, "id", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Index"])(),
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])({ name: 'email', type: 'varchar', length: 254, unique: true }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
 ], User.prototype, "email", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])({ name: 'password', type: 'varchar', length: 256 }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
 ], User.prototype, "password", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Column"])({ name: 'person_id', type: 'character varying', nullable: false }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
 ], User.prototype, "personId", void 0);
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["ManyToOne"])(() => _person_entity__WEBPACK_IMPORTED_MODULE_2__["Person"], (person) => person.users, {
         lazy: true,
         onDelete: 'CASCADE',
         onUpdate: 'NO ACTION',
     }),
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["JoinColumn"])({ name: 'person_id' }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
 ], User.prototype, "person", void 0);
-User = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+User = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["Entity"])('users')
 ], User);
 
@@ -555,7 +495,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class CreatePersonsTable1610493939987 {
     up(queryRunner) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield queryRunner.createTable(new typeorm__WEBPACK_IMPORTED_MODULE_1__["Table"]({
                 name: CreatePersonsTable1610493939987.TABLE_NAME,
                 indices: [
@@ -580,7 +520,7 @@ class CreatePersonsTable1610493939987 {
         });
     }
     down(queryRunner) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield queryRunner.dropTable(CreatePersonsTable1610493939987.TABLE_NAME, false, false, true);
         });
     }
@@ -610,7 +550,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class CreateUsersTable1610494267701 {
     up(queryRunner) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const foreignKeys = [
                 {
                     columnNames: ['person_id'],
@@ -658,76 +598,12 @@ class CreateUsersTable1610494267701 {
         });
     }
     down(queryRunner) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield queryRunner.dropTable(CreateUsersTable1610494267701.TABLE_NAME, false, true, true);
         });
     }
 }
 CreateUsersTable1610494267701.TABLE_NAME = 'users';
-
-
-/***/ }),
-
-/***/ "./apps/apis/user/src/core/database/sources/api/migrations/1610497375029-CreateSessionTable.ts":
-/*!*****************************************************************************************************!*\
-  !*** ./apps/apis/user/src/core/database/sources/api/migrations/1610497375029-CreateSessionTable.ts ***!
-  \*****************************************************************************************************/
-/*! exports provided: CreateSessionTable1610497375029 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateSessionTable1610497375029", function() { return CreateSessionTable1610497375029; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
-
-
-class CreateSessionTable1610497375029 {
-    up(queryRunner) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield queryRunner.createTable(new typeorm__WEBPACK_IMPORTED_MODULE_1__["Table"]({
-                name: CreateSessionTable1610497375029.TABLE_NAME,
-                indices: [
-                    {
-                        columnNames: ['user_id'],
-                    },
-                ],
-                columns: [
-                    {
-                        name: 'id',
-                        type: 'uuid',
-                        isPrimary: true,
-                        generationStrategy: 'uuid',
-                    },
-                    {
-                        name: 'user_id',
-                        type: 'uuid',
-                        isNullable: false,
-                    },
-                    {
-                        name: 'expires_at',
-                        type: 'timestamp with time zone',
-                        isNullable: false,
-                    },
-                    {
-                        name: 'created_at',
-                        type: 'timestamp with time zone',
-                        isNullable: false,
-                        default: 'now()',
-                    },
-                ],
-            }), false, false, true);
-        });
-    }
-    down(queryRunner) {
-        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield queryRunner.dropTable(CreateSessionTable1610497375029.TABLE_NAME, false, false, true);
-        });
-    }
-}
-CreateSessionTable1610497375029.TABLE_NAME = 'sessions';
 
 
 /***/ }),
@@ -771,6 +647,192 @@ module.exports = JSON.parse("{\"name\":\"API_DATABASE\",\"type\":\"postgres\",\"
 
 /***/ }),
 
+/***/ "./apps/apis/user/src/core/database/sources/api/subscribers/user.subscriber.ts":
+/*!*************************************************************************************!*\
+  !*** ./apps/apis/user/src/core/database/sources/api/subscribers/user.subscriber.ts ***!
+  \*************************************************************************************/
+/*! exports provided: UserSubscriber */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserSubscriber", function() { return UserSubscriber; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _entities_user_entity__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../entities/user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts");
+/* harmony import */ var _connection_provider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../connection.provider */ "./apps/apis/user/src/core/database/sources/api/connection.provider.ts");
+/* harmony import */ var _encryption_salt_salt_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../encryption/salt/salt.service */ "./apps/apis/user/src/core/encryption/salt/salt.service.ts");
+
+var _a, _b;
+
+
+
+
+let UserSubscriber = class UserSubscriber {
+    constructor(connectionProvider, saltService) {
+        this.connectionProvider = connectionProvider;
+        this.saltService = saltService;
+        Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["getConnection"])(connectionProvider.config.name).subscribers.push(this);
+    }
+    listenTo() {
+        return _entities_user_entity__WEBPACK_IMPORTED_MODULE_2__["User"];
+    }
+    beforeInsert(event) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            event.entity.password = yield this.saltService.salt(event.entity.password);
+        });
+    }
+};
+UserSubscriber = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(typeorm__WEBPACK_IMPORTED_MODULE_1__["EventSubscriber"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _connection_provider__WEBPACK_IMPORTED_MODULE_3__["ConnectionProvider"] !== "undefined" && _connection_provider__WEBPACK_IMPORTED_MODULE_3__["ConnectionProvider"]) === "function" ? _a : Object, typeof (_b = typeof _encryption_salt_salt_service__WEBPACK_IMPORTED_MODULE_4__["SaltService"] !== "undefined" && _encryption_salt_salt_service__WEBPACK_IMPORTED_MODULE_4__["SaltService"]) === "function" ? _b : Object])
+], UserSubscriber);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/core/encryption/encryption.module.ts":
+/*!*****************************************************************!*\
+  !*** ./apps/apis/user/src/core/encryption/encryption.module.ts ***!
+  \*****************************************************************/
+/*! exports provided: EncryptionModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EncryptionModule", function() { return EncryptionModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _salt_salt_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./salt/salt.module */ "./apps/apis/user/src/core/encryption/salt/salt.module.ts");
+
+
+
+let EncryptionModule = class EncryptionModule {
+};
+EncryptionModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
+        imports: [_salt_salt_module__WEBPACK_IMPORTED_MODULE_2__["SaltModule"]],
+        exports: [_salt_salt_module__WEBPACK_IMPORTED_MODULE_2__["SaltModule"]],
+    })
+], EncryptionModule);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/core/encryption/salt/salt.module.ts":
+/*!****************************************************************!*\
+  !*** ./apps/apis/user/src/core/encryption/salt/salt.module.ts ***!
+  \****************************************************************/
+/*! exports provided: SaltModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaltModule", function() { return SaltModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _saltConfiguration__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./saltConfiguration */ "./apps/apis/user/src/core/encryption/salt/saltConfiguration.ts");
+/* harmony import */ var _salt_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./salt.service */ "./apps/apis/user/src/core/encryption/salt/salt.service.ts");
+
+
+
+
+
+let SaltModule = class SaltModule {
+};
+SaltModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
+        imports: [_nestjs_config__WEBPACK_IMPORTED_MODULE_2__["ConfigModule"].forFeature(_saltConfiguration__WEBPACK_IMPORTED_MODULE_3__["saltConfiguration"])],
+        providers: [_salt_service__WEBPACK_IMPORTED_MODULE_4__["SaltService"]],
+        exports: [_salt_service__WEBPACK_IMPORTED_MODULE_4__["SaltService"]],
+    })
+], SaltModule);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/core/encryption/salt/salt.service.ts":
+/*!*****************************************************************!*\
+  !*** ./apps/apis/user/src/core/encryption/salt/salt.service.ts ***!
+  \*****************************************************************/
+/*! exports provided: SaltService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SaltService", function() { return SaltService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bcrypt */ "bcrypt");
+/* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bcrypt__WEBPACK_IMPORTED_MODULE_3__);
+
+var _a;
+
+
+
+let SaltService = class SaltService {
+    constructor(configService) {
+        this.configService = configService;
+        this.rounds = configService.get('salt.rounds', 10);
+    }
+    compare(str, hash) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            return bcrypt__WEBPACK_IMPORTED_MODULE_3___default.a.compare(str, hash);
+        });
+    }
+    salt(str) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            return bcrypt__WEBPACK_IMPORTED_MODULE_3___default.a.hash(str, this.rounds);
+        });
+    }
+};
+SaltService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _nestjs_config__WEBPACK_IMPORTED_MODULE_2__["ConfigService"] !== "undefined" && _nestjs_config__WEBPACK_IMPORTED_MODULE_2__["ConfigService"]) === "function" ? _a : Object])
+], SaltService);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/core/encryption/salt/saltConfiguration.ts":
+/*!**********************************************************************!*\
+  !*** ./apps/apis/user/src/core/encryption/salt/saltConfiguration.ts ***!
+  \**********************************************************************/
+/*! exports provided: saltConfiguration */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "saltConfiguration", function() { return saltConfiguration; });
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_toFinite__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/toFinite */ "lodash/toFinite");
+/* harmony import */ var lodash_toFinite__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_toFinite__WEBPACK_IMPORTED_MODULE_1__);
+
+
+const saltConfiguration = Object(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__["registerAs"])('salt', () => ({
+    rounds: lodash_toFinite__WEBPACK_IMPORTED_MODULE_1___default()(process.env.SALT_ROUNDS) || 10,
+}));
+
+
+/***/ }),
+
 /***/ "./apps/apis/user/src/core/health/health.controller.ts":
 /*!*************************************************************!*\
   !*** ./apps/apis/user/src/core/health/health.controller.ts ***!
@@ -787,8 +849,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/terminus */ "@nestjs/terminus");
 /* harmony import */ var _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__);
-var _a, _b, _c;
 
+var _a, _b, _c;
 
 
 let HealthController = class HealthController {
@@ -805,16 +867,16 @@ let HealthController = class HealthController {
         ]);
     }
 };
-Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Get"])('readiness'),
     Object(_nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["HealthCheck"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", []),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:returntype", void 0)
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", []),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
 ], HealthController.prototype, "readiness", null);
-HealthController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+HealthController = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('health'),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [typeof (_a = typeof _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["HealthCheckService"] !== "undefined" && _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["HealthCheckService"]) === "function" ? _a : Object, typeof (_b = typeof _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["TypeOrmHealthIndicator"] !== "undefined" && _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["TypeOrmHealthIndicator"]) === "function" ? _b : Object, typeof (_c = typeof _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["MemoryHealthIndicator"] !== "undefined" && _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["MemoryHealthIndicator"]) === "function" ? _c : Object])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["HealthCheckService"] !== "undefined" && _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["HealthCheckService"]) === "function" ? _a : Object, typeof (_b = typeof _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["TypeOrmHealthIndicator"] !== "undefined" && _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["TypeOrmHealthIndicator"]) === "function" ? _b : Object, typeof (_c = typeof _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["MemoryHealthIndicator"] !== "undefined" && _nestjs_terminus__WEBPACK_IMPORTED_MODULE_2__["MemoryHealthIndicator"]) === "function" ? _c : Object])
 ], HealthController);
 
 
@@ -844,7 +906,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let HealthModule = class HealthModule {
 };
-HealthModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+HealthModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         imports: [_nestjs_terminus__WEBPACK_IMPORTED_MODULE_3__["TerminusModule"]],
         controllers: [_health_controller__WEBPACK_IMPORTED_MODULE_2__["HealthController"]],
@@ -873,7 +935,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let MetricsModule = class MetricsModule {
 };
-MetricsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+MetricsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({})
 ], MetricsModule);
 
@@ -899,7 +961,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let ObservabilityModule = class ObservabilityModule {
 };
-ObservabilityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+ObservabilityModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
         providers: [_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Logger"]],
         exports: [_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Logger"]],
@@ -924,14 +986,109 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _jwt_jwt_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./jwt/jwt.guard */ "./apps/apis/user/src/features/account/jwt/jwt.guard.ts");
+
 
 
 let AccountController = class AccountController {
+    sendHi() {
+        return 'hi';
+    }
 };
-AccountController = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseGuards"])(),
-    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('account')
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Get"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", []),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
+], AccountController.prototype, "sendHi", null);
+AccountController = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('account'),
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseGuards"])(_jwt_jwt_guard__WEBPACK_IMPORTED_MODULE_2__["JwtGuard"])
 ], AccountController);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/account.interactor.ts":
+/*!*******************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/account.interactor.ts ***!
+  \*******************************************************************/
+/*! exports provided: AccountInteractor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountInteractor", function() { return AccountInteractor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _core_database_sources_api_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/database/sources/api/entities/user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _core_database_sources_api_entities_person_entity__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/database/sources/api/entities/person.entity */ "./apps/apis/user/src/core/database/sources/api/entities/person.entity.ts");
+/* harmony import */ var _core_encryption_salt_salt_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/encryption/salt/salt.service */ "./apps/apis/user/src/core/encryption/salt/salt.service.ts");
+
+var _a, _b, _c;
+
+
+
+
+
+
+/**
+ * @mermaid
+ * erDiagram
+ *    %% All entities also carry dates with soft deletion
+ *    PERSON {
+ *      uuid id
+ *      string name
+ *    }
+ *    %% Passwords are salted
+ *    USER {
+ *      uuid id
+ *      uuid person_id
+ *      string email
+ *      string password
+ *    }
+ *    %% Account is an interactor
+ *    %% It is injected into requests' protected contexts
+ *    ACCOUNT_INTERACTOR {
+ *      uuid session_id
+ *      uuid user_id
+ *    }
+ *    PERSON ||--|{ USER : has
+ *    ACCOUNT_INTERACTOR ||--|| USER : administers
+ */
+let AccountInteractor = class AccountInteractor {
+    constructor(userRepository, personRepository, saltService) {
+        this.userRepository = userRepository;
+        this.personRepository = personRepository;
+        this.saltService = saltService;
+    }
+    validateCredentials(email, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const user = yield this.userRepository.findOne({ where: { email } });
+            if (!this.user) {
+                return null;
+            }
+            const matches = yield this.user.comparePassword(password, this.saltService);
+            if (!matches) {
+                return null;
+            }
+            return (this.user = user);
+        });
+    }
+};
+AccountInteractor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ scope: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Scope"].REQUEST }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__["InjectRepository"])(_core_database_sources_api_entities_user_entity__WEBPACK_IMPORTED_MODULE_3__["User"])),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_4__["InjectRepository"])(_core_database_sources_api_entities_person_entity__WEBPACK_IMPORTED_MODULE_5__["Person"])),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof typeorm__WEBPACK_IMPORTED_MODULE_2__["Repository"] !== "undefined" && typeorm__WEBPACK_IMPORTED_MODULE_2__["Repository"]) === "function" ? _a : Object, typeof (_b = typeof typeorm__WEBPACK_IMPORTED_MODULE_2__["Repository"] !== "undefined" && typeorm__WEBPACK_IMPORTED_MODULE_2__["Repository"]) === "function" ? _b : Object, typeof (_c = typeof _core_encryption_salt_salt_service__WEBPACK_IMPORTED_MODULE_6__["SaltService"] !== "undefined" && _core_encryption_salt_salt_service__WEBPACK_IMPORTED_MODULE_6__["SaltService"]) === "function" ? _c : Object])
+], AccountInteractor);
 
 
 
@@ -952,16 +1109,386 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _account_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./account.controller */ "./apps/apis/user/src/features/account/account.controller.ts");
+/* harmony import */ var _auth_controller__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.controller */ "./apps/apis/user/src/features/account/auth.controller.ts");
+/* harmony import */ var _jwt_jwt_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./jwt/jwt.module */ "./apps/apis/user/src/features/account/jwt/jwt.module.ts");
+/* harmony import */ var _account_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./account.service */ "./apps/apis/user/src/features/account/account.service.ts");
+/* harmony import */ var _account_interactor__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./account.interactor */ "./apps/apis/user/src/features/account/account.interactor.ts");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _core_database_sources_api_entities_user_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/database/sources/api/entities/user.entity */ "./apps/apis/user/src/core/database/sources/api/entities/user.entity.ts");
+/* harmony import */ var _core_database_sources_api_entities_person_entity__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../core/database/sources/api/entities/person.entity */ "./apps/apis/user/src/core/database/sources/api/entities/person.entity.ts");
+/* harmony import */ var _core_encryption_encryption_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../core/encryption/encryption.module */ "./apps/apis/user/src/core/encryption/encryption.module.ts");
+
+
+
+
+
+
+
+
 
 
 
 let AccountModule = class AccountModule {
 };
-AccountModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+AccountModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
-        controllers: [_account_controller__WEBPACK_IMPORTED_MODULE_2__["AccountController"]],
+        imports: [
+            _jwt_jwt_module__WEBPACK_IMPORTED_MODULE_4__["JwtModule"],
+            _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_7__["TypeOrmModule"].forFeature([_core_database_sources_api_entities_user_entity__WEBPACK_IMPORTED_MODULE_8__["User"], _core_database_sources_api_entities_person_entity__WEBPACK_IMPORTED_MODULE_9__["Person"]]),
+            _core_encryption_encryption_module__WEBPACK_IMPORTED_MODULE_10__["EncryptionModule"],
+        ],
+        providers: [_account_service__WEBPACK_IMPORTED_MODULE_5__["AccountService"], _account_interactor__WEBPACK_IMPORTED_MODULE_6__["AccountInteractor"]],
+        controllers: [_auth_controller__WEBPACK_IMPORTED_MODULE_3__["AuthController"], _account_controller__WEBPACK_IMPORTED_MODULE_2__["AccountController"]],
     })
 ], AccountModule);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/account.service.ts":
+/*!****************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/account.service.ts ***!
+  \****************************************************************/
+/*! exports provided: AccountService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountService", function() { return AccountService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _account_interactor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./account.interactor */ "./apps/apis/user/src/features/account/account.interactor.ts");
+
+var _a, _b;
+
+
+
+let AccountService = class AccountService {
+    constructor(jwtService, accountInteractor) {
+        this.jwtService = jwtService;
+        this.accountInteractor = accountInteractor;
+    }
+    validate(email, password) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            return yield this.accountInteractor.validateCredentials(email, password);
+        });
+    }
+};
+AccountService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__["JwtService"] !== "undefined" && _nestjs_jwt__WEBPACK_IMPORTED_MODULE_2__["JwtService"]) === "function" ? _a : Object, typeof (_b = typeof _account_interactor__WEBPACK_IMPORTED_MODULE_3__["AccountInteractor"] !== "undefined" && _account_interactor__WEBPACK_IMPORTED_MODULE_3__["AccountInteractor"]) === "function" ? _b : Object])
+], AccountService);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/auth-login.dto.ts":
+/*!***************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/auth-login.dto.ts ***!
+  \***************************************************************/
+/*! exports provided: AuthLoginDto */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthLoginDto", function() { return AuthLoginDto; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! class-validator */ "class-validator");
+/* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_1__);
+
+
+class AuthLoginDto {
+}
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsString"])(),
+    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsEmail"])(),
+    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsNotEmpty"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+], AuthLoginDto.prototype, "email", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsString"])(),
+    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsNotEmpty"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
+], AuthLoginDto.prototype, "password", void 0);
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/auth.controller.ts":
+/*!****************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/auth.controller.ts ***!
+  \****************************************************************/
+/*! exports provided: AuthController */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthController", function() { return AuthController; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _account_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./account.service */ "./apps/apis/user/src/features/account/account.service.ts");
+/* harmony import */ var _auth_login_dto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth-login.dto */ "./apps/apis/user/src/features/account/auth-login.dto.ts");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! express */ "express");
+/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_6__);
+
+var _a, _b, _c, _d, _e, _f;
+
+
+
+
+
+
+let AuthController = class AuthController {
+    constructor(accountService, configService, jwtService) {
+        this.accountService = accountService;
+        this.configService = configService;
+        this.jwtService = jwtService;
+    }
+    login(body, response) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const user = yield this.accountService.validate(body.email, body.password);
+            if (!user) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UnauthorizedException"]('wrong credentials');
+            }
+            const payload = { email: user.email };
+            const token = yield this.jwtService.signAsync(payload);
+            const jwtConfig = this.configService.get('jwt');
+            response.cookie(jwtConfig.cookieName, token, { httpOnly: true });
+        });
+    }
+    logout(response) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const jwtConfig = this.configService.get('jwt');
+            response.clearCookie(jwtConfig.cookieName);
+        });
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('login'),
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpCode"])(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].NO_CONTENT),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Res"])({ passthrough: true })),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _auth_login_dto__WEBPACK_IMPORTED_MODULE_3__["AuthLoginDto"] !== "undefined" && _auth_login_dto__WEBPACK_IMPORTED_MODULE_3__["AuthLoginDto"]) === "function" ? _a : Object, typeof (_b = typeof express__WEBPACK_IMPORTED_MODULE_5__["Response"] !== "undefined" && express__WEBPACK_IMPORTED_MODULE_5__["Response"]) === "function" ? _b : Object]),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", Promise)
+], AuthController.prototype, "login", null);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('logout'),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Res"])({ passthrough: true })),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_c = typeof express__WEBPACK_IMPORTED_MODULE_5__["Response"] !== "undefined" && express__WEBPACK_IMPORTED_MODULE_5__["Response"]) === "function" ? _c : Object]),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", Promise)
+], AuthController.prototype, "logout", null);
+AuthController = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('auth'),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_d = typeof _account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"] !== "undefined" && _account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"]) === "function" ? _d : Object, typeof (_e = typeof _nestjs_config__WEBPACK_IMPORTED_MODULE_6__["ConfigService"] !== "undefined" && _nestjs_config__WEBPACK_IMPORTED_MODULE_6__["ConfigService"]) === "function" ? _e : Object, typeof (_f = typeof _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__["JwtService"] !== "undefined" && _nestjs_jwt__WEBPACK_IMPORTED_MODULE_4__["JwtService"]) === "function" ? _f : Object])
+], AuthController);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/jwt/cookie.extractor.ts":
+/*!*********************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/jwt/cookie.extractor.ts ***!
+  \*********************************************************************/
+/*! exports provided: cookieExtractor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cookieExtractor", function() { return cookieExtractor; });
+const cookieExtractor = (cookieName) => (request) => {
+    if (!request.cookies) {
+        return null;
+    }
+    return request.cookies[cookieName] || null;
+};
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/jwt/jwt.config.ts":
+/*!***************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/jwt/jwt.config.ts ***!
+  \***************************************************************/
+/*! exports provided: jwtConfig */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jwtConfig", function() { return jwtConfig; });
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__);
+
+const jwtConfig = Object(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__["registerAs"])('jwt', () => ({
+    secret: process.env.JWT_SECRET || 'asecret',
+    cookieName: process.env.JWT_COOKIE_NAME || 'user-api-user-token',
+    signOptions: { expiresIn: process.env.JWT_EXPIRES_IN || '120m' },
+}));
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/jwt/jwt.constants.ts":
+/*!******************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/jwt/jwt.constants.ts ***!
+  \******************************************************************/
+/*! exports provided: JWT_STRATEGY_NAME */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JWT_STRATEGY_NAME", function() { return JWT_STRATEGY_NAME; });
+const JWT_STRATEGY_NAME = 'jwt_strategy';
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/jwt/jwt.guard.ts":
+/*!**************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/jwt/jwt.guard.ts ***!
+  \**************************************************************/
+/*! exports provided: JwtGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JwtGuard", function() { return JwtGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _jwt_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./jwt.constants */ "./apps/apis/user/src/features/account/jwt/jwt.constants.ts");
+
+
+
+
+let JwtGuard = class JwtGuard extends Object(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__["AuthGuard"])(_jwt_constants__WEBPACK_IMPORTED_MODULE_3__["JWT_STRATEGY_NAME"]) {
+};
+JwtGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], JwtGuard);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/jwt/jwt.module.ts":
+/*!***************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/jwt/jwt.module.ts ***!
+  \***************************************************************/
+/*! exports provided: JwtModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JwtModule", function() { return JwtModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _jwt_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./jwt.config */ "./apps/apis/user/src/features/account/jwt/jwt.config.ts");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @nestjs/jwt */ "@nestjs/jwt");
+/* harmony import */ var _nestjs_jwt__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_nestjs_jwt__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _jwt_strategy__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./jwt.strategy */ "./apps/apis/user/src/features/account/jwt/jwt.strategy.ts");
+/* harmony import */ var _jwt_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./jwt.guard */ "./apps/apis/user/src/features/account/jwt/jwt.guard.ts");
+
+
+
+
+
+
+
+
+const config = _nestjs_config__WEBPACK_IMPORTED_MODULE_3__["ConfigModule"].forFeature(_jwt_config__WEBPACK_IMPORTED_MODULE_4__["jwtConfig"]);
+const jwtModule = _nestjs_jwt__WEBPACK_IMPORTED_MODULE_5__["JwtModule"].registerAsync({
+    imports: [_nestjs_config__WEBPACK_IMPORTED_MODULE_3__["ConfigModule"], config],
+    useFactory(configService) {
+        return configService.get('jwt');
+    },
+    inject: [_nestjs_config__WEBPACK_IMPORTED_MODULE_3__["ConfigService"]],
+});
+let JwtModule = class JwtModule {
+};
+JwtModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
+        imports: [_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__["PassportModule"], jwtModule, _nestjs_config__WEBPACK_IMPORTED_MODULE_3__["ConfigModule"], config],
+        providers: [_jwt_strategy__WEBPACK_IMPORTED_MODULE_6__["JwtStrategy"], _jwt_guard__WEBPACK_IMPORTED_MODULE_7__["JwtGuard"]],
+        exports: [_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__["PassportModule"], jwtModule, _jwt_strategy__WEBPACK_IMPORTED_MODULE_6__["JwtStrategy"], _jwt_guard__WEBPACK_IMPORTED_MODULE_7__["JwtGuard"], config],
+    })
+], JwtModule);
+
+
+
+/***/ }),
+
+/***/ "./apps/apis/user/src/features/account/jwt/jwt.strategy.ts":
+/*!*****************************************************************!*\
+  !*** ./apps/apis/user/src/features/account/jwt/jwt.strategy.ts ***!
+  \*****************************************************************/
+/*! exports provided: JwtStrategy */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JwtStrategy", function() { return JwtStrategy; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var passport_jwt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! passport-jwt */ "passport-jwt");
+/* harmony import */ var passport_jwt__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(passport_jwt__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/passport */ "@nestjs/passport");
+/* harmony import */ var _nestjs_passport__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _cookie_extractor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./cookie.extractor */ "./apps/apis/user/src/features/account/jwt/cookie.extractor.ts");
+/* harmony import */ var _jwt_constants__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./jwt.constants */ "./apps/apis/user/src/features/account/jwt/jwt.constants.ts");
+
+var _a;
+
+
+
+
+
+
+let JwtStrategy = class JwtStrategy extends Object(_nestjs_passport__WEBPACK_IMPORTED_MODULE_2__["PassportStrategy"])(passport_jwt__WEBPACK_IMPORTED_MODULE_1__["Strategy"], _jwt_constants__WEBPACK_IMPORTED_MODULE_6__["JWT_STRATEGY_NAME"]) {
+    constructor(configService) {
+        const jwtConfig = configService.get('jwt');
+        super({
+            jwtFromRequest: passport_jwt__WEBPACK_IMPORTED_MODULE_1__["ExtractJwt"].fromExtractors([
+                Object(_cookie_extractor__WEBPACK_IMPORTED_MODULE_5__["cookieExtractor"])(jwtConfig.cookieName),
+            ]),
+            secretOrKey: jwtConfig.secret,
+            ignoreExpiration: false,
+        });
+    }
+};
+JwtStrategy = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_3__["Injectable"])(),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _nestjs_config__WEBPACK_IMPORTED_MODULE_4__["ConfigService"] !== "undefined" && _nestjs_config__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]) === "function" ? _a : Object])
+], JwtStrategy);
 
 
 
@@ -983,15 +1510,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.module */ "./apps/apis/user/src/app.module.ts");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @nestjs/config */ "@nestjs/config");
+/* harmony import */ var _nestjs_config__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 void (function bootstrap() {
-    return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
         const app = yield _nestjs_core__WEBPACK_IMPORTED_MODULE_1__["NestFactory"].create(_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"]);
         const logger = app.get(_nestjs_common__WEBPACK_IMPORTED_MODULE_2__["Logger"]);
-        const port = process.env.PORT || 3333;
+        const config = app.get(_nestjs_config__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]);
+        const port = config.get('app.port');
         yield app.listen(port, () => {
             logger.log('Listening at http://localhost:' + port + '/');
         });
@@ -1024,6 +1555,17 @@ module.exports = require("@nestjs/common");
 
 /***/ }),
 
+/***/ "@nestjs/config":
+/*!*********************************!*\
+  !*** external "@nestjs/config" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@nestjs/config");
+
+/***/ }),
+
 /***/ "@nestjs/core":
 /*!*******************************!*\
   !*** external "@nestjs/core" ***!
@@ -1032,6 +1574,28 @@ module.exports = require("@nestjs/common");
 /***/ (function(module, exports) {
 
 module.exports = require("@nestjs/core");
+
+/***/ }),
+
+/***/ "@nestjs/jwt":
+/*!******************************!*\
+  !*** external "@nestjs/jwt" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@nestjs/jwt");
+
+/***/ }),
+
+/***/ "@nestjs/passport":
+/*!***********************************!*\
+  !*** external "@nestjs/passport" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@nestjs/passport");
 
 /***/ }),
 
@@ -1054,6 +1618,72 @@ module.exports = require("@nestjs/terminus");
 /***/ (function(module, exports) {
 
 module.exports = require("@nestjs/typeorm");
+
+/***/ }),
+
+/***/ "bcrypt":
+/*!*************************!*\
+  !*** external "bcrypt" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("bcrypt");
+
+/***/ }),
+
+/***/ "class-validator":
+/*!**********************************!*\
+  !*** external "class-validator" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("class-validator");
+
+/***/ }),
+
+/***/ "cookie-parser":
+/*!********************************!*\
+  !*** external "cookie-parser" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("cookie-parser");
+
+/***/ }),
+
+/***/ "express":
+/*!**************************!*\
+  !*** external "express" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
+
+/***/ "lodash/toFinite":
+/*!**********************************!*\
+  !*** external "lodash/toFinite" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("lodash/toFinite");
+
+/***/ }),
+
+/***/ "passport-jwt":
+/*!*******************************!*\
+  !*** external "passport-jwt" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("passport-jwt");
 
 /***/ }),
 

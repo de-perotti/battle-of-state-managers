@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, TableColumn } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 import { CreatePersonsTable1610493939987 } from './1610493939987-CreatePersonsTable';
 import { TableColumnOptions } from 'typeorm/schema-builder/options/TableColumnOptions';
 import { TableForeignKeyOptions } from 'typeorm/schema-builder/options/TableForeignKeyOptions';
