@@ -25,3 +25,11 @@ services:
       POSTGRES_DB: api_development
     volumes:
       - /var/lib/postgresql/data
+
+  apis-user-db-test:
+    extends:
+      service: apis-user-db
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: api_test

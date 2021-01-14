@@ -72,6 +72,7 @@ Since architecture is going to be secondary to this experiment, we'll try to kee
 ## TODO
 
 - [ ] Add git hooks
+- [ ] Improve on configuration. Strings dont seem to be the best choice
 
 # Development
 
