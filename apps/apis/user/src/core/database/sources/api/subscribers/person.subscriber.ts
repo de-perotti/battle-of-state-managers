@@ -18,6 +18,6 @@ export class PersonSubscriber implements EntitySubscriberInterface<Person> {
   }
 
   async beforeInsert(event: InsertEvent<Person>) {
-    event.entity = uuidv4();
+    event.entity.id = event.entity.id || uuidv4();
   }
 }

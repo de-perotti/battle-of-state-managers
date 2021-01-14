@@ -6,14 +6,10 @@ import {
 } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { v4 as uuidv4 } from 'uuid';
-import { SaltService } from '../../../../encryption/salt/salt.service';
 
 @EventSubscriber()
 export class UserSubscriber implements EntitySubscriberInterface<User> {
-  constructor(
-    private readonly connection: Connection,
-    private readonly saltService: SaltService
-  ) {
+  constructor(private readonly connection: Connection) {
     connection.subscribers.push(this);
   }
 
@@ -22,7 +18,6 @@ export class UserSubscriber implements EntitySubscriberInterface<User> {
   }
 
   async beforeInsert(event: InsertEvent<User>) {
-    event.entity.password = await this.saltService.salt(event.entity.password);
-    event.entity = uuidv4();
+    event.entity.id = event.entity.id || uuidv4();
   }
 }

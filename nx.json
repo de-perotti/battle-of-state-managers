@@ -60,6 +60,9 @@
     },
     "state-sweet-state": {
       "tags": []
+    },
+    "test-nest": {
+      "tags": []
     }
   }
 }

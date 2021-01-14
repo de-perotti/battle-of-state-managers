@@ -1,5 +1,4 @@
 {
-  "name": "API_DATABASE",
   "type": "postgres",
   "host": "localhost",
   "username": "user",

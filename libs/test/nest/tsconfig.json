@@ -3,12 +3,11 @@
   "files": [],
   "include": [],
   "compilerOptions": {
-    "resolveJsonModule": true,
     "esModuleInterop": true
   },
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.lib.json"
     },
     {
       "path": "./tsconfig.spec.json"

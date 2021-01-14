@@ -52,7 +52,10 @@ export class AccountInteractor {
       return null;
     }
 
-    const matches = await this.user.comparePassword(password, this.saltService);
+    const matches = await this.saltService.compare(
+      password,
+      this.user.password
+    );
 
     if (!matches) {
       return null;
@@ -76,7 +79,7 @@ export class AccountInteractor {
       const userRepository = manager.getRepository<User>(User);
       const user: User = userRepository.create({
         email,
-        password,
+        password: await this.saltService.salt(password),
         personId: id,
       });
       await manager.insert(User, user);

@@ -73,6 +73,7 @@ Since architecture is going to be secondary to this experiment, we'll try to kee
 
 - [ ] Add git hooks
 - [ ] Improve on configuration. Strings dont seem to be the best choice
+- [ ] Seguir o andamento [dessa issue](https://github.com/nestjs/typeorm/issues/66)
 
 # Development
 

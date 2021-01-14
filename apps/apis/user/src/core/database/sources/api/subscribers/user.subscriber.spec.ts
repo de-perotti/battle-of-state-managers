@@ -2,9 +2,11 @@ import { Test } from '@nestjs/testing';
 import { ApiModule } from '../api.module';
 import { Connection, getConnection } from 'typeorm';
 import { ConnectionProvider } from '../connection.provider';
-import { Person } from '../entities/person.entity';
 import { validate, version } from 'uuid';
 import { runDatabaseDependentTest } from '@battle-of-state-managers/test/nest';
+import { User } from '../entities/user.entity';
+import { v4 as uuidv4 } from 'uuid';
+import { Person } from '../entities/person.entity';
 
 describe('Person Subscriber', () => {
   async function setup() {
@@ -25,27 +27,36 @@ describe('Person Subscriber', () => {
       app,
       connection,
       async (connection: Connection): Promise<void> => {
+        const userRepository = connection.getRepository<User>(User);
         const personRepository = connection.getRepository<Person>(Person);
-        expect(await personRepository.count()).toEqual(0);
+        expect(await userRepository.count()).toEqual(0);
 
         // Creating
+        const user = userRepository.create({
+          password: 'something',
+          email: 'email',
+          personId: uuidv4(),
+        });
+        expect(validate(user.id)).toEqual(false);
         const person = personRepository.create({
+          id: user.personId,
           name: 'a cool mcdude',
         });
 
         // Saving
-        let savedPerson = await personRepository.save(person);
-        expect(savedPerson).toBe(person);
-        expect(validate(person.id)).toEqual(true);
-        expect(version(person.id)).toEqual(4);
-        expect(await personRepository.count()).toEqual(1);
+        await personRepository.save(person);
+        const savedUser = await userRepository.save(user);
+        expect(savedUser).toBe(user);
+        expect(validate(user.id)).toEqual(true);
+        expect(version(user.id)).toEqual(4);
+        expect(await userRepository.count()).toEqual(1);
 
         // Updating
-        const oldId = savedPerson.id;
-        savedPerson.name = 'not a cool mcdude';
-        savedPerson = await personRepository.save(savedPerson);
-        expect(oldId).toEqual(savedPerson.id);
-        expect(await personRepository.count()).toEqual(1);
+        const oldId = user.id;
+        user.email = 'somethingelse';
+        await user.save({ reload: true });
+        expect(oldId).toEqual(user.id);
+        expect(await userRepository.count()).toEqual(1);
       }
     );
   });

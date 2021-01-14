@@ -38,9 +38,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/apis/user/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/apis/user/**/*.ts"]
           }
         },
         "test": {
@@ -105,9 +103,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/hubs/main/**/*.{ts,tsx}"
-            ]
+            "lintFilePatterns": ["apps/hubs/main/**/*.{ts,tsx}"]
           }
         },
         "test": {
@@ -140,9 +136,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/hubs/main-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/hubs/main-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -156,9 +150,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/jotai/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/jotai/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -179,9 +171,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/mobx/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/mobx/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -202,9 +192,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/apollo/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/apollo/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -225,9 +213,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/recoil/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/recoil/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -248,9 +234,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/redux/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/redux/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -271,9 +255,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/relay/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/relay/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -294,9 +276,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/swr/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/swr/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -317,9 +297,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/zustand/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/zustand/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -340,15 +318,33 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/state/sweet-state/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/state/sweet-state/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/state/sweet-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "test-nest": {
+      "root": "libs/test/nest",
+      "sourceRoot": "libs/test/nest/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/test/nest/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/test/nest/jest.config.js",
             "passWithNoTests": true
           }
         }

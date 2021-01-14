@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/libs/state/zustand',
     '<rootDir>/apps/apis/user',
     '<rootDir>/libs/state/sweet-state',
+    '<rootDir>/libs/test/nest',
   ],
 };

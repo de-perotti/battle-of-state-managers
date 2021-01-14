@@ -11,4 +11,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../coverage/apps/apis/user',
+  maxConcurrency: 1, // Because databases
 };
