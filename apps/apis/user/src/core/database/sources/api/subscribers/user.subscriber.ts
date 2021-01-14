@@ -1,20 +1,20 @@
 import {
+  Connection,
   EntitySubscriberInterface,
   EventSubscriber,
-  getConnection,
   InsertEvent,
 } from 'typeorm';
 import { User } from '../entities/user.entity';
-import { ConnectionProvider } from '../connection.provider';
+import { v4 as uuidv4 } from 'uuid';
 import { SaltService } from '../../../../encryption/salt/salt.service';
 
 @EventSubscriber()
 export class UserSubscriber implements EntitySubscriberInterface<User> {
   constructor(
-    private readonly connectionProvider: ConnectionProvider,
+    private readonly connection: Connection,
     private readonly saltService: SaltService
   ) {
-    getConnection(connectionProvider.config.name).subscribers.push(this);
+    connection.subscribers.push(this);
   }
 
   listenTo() {
@@ -23,5 +23,6 @@ export class UserSubscriber implements EntitySubscriberInterface<User> {
 
   async beforeInsert(event: InsertEvent<User>) {
     event.entity.password = await this.saltService.salt(event.entity.password);
+    event.entity = uuidv4();
   }
 }

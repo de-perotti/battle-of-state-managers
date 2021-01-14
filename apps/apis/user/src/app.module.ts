@@ -1,15 +1,16 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { CoreModule } from './core/core.module';
-import { AccountModule } from './features/account/account.module';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { appConfig } from './app.config';
-import * as cookieParser from 'cookie-parser';
+import { ObservabilityModule } from './core/observability/observability.module';
+import { FeaturesModule } from './features/features.module';
+import { ConfigurationModule } from './core/configuration/configuration.module';
 
 @Module({
-  imports: [CoreModule, ConfigModule.forFeature(appConfig), AccountModule],
+  imports: [
+    ConfigurationModule,
+    ConfigModule.forFeature(appConfig),
+    ObservabilityModule,
+    FeaturesModule,
+  ],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(cookieParser());
-  }
-}
+export class AppModule {}

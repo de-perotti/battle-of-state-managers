@@ -54,7 +54,8 @@
     "reflect-metadata": "^0.1.10",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "typeorm": "0.2.29"
+    "typeorm": "0.2.29",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",

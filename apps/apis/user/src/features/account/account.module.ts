@@ -8,9 +8,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../../core/database/sources/api/entities/user.entity';
 import { Person } from '../../core/database/sources/api/entities/person.entity';
 import { EncryptionModule } from '../../core/encryption/encryption.module';
+import { DatabaseModule } from '../../core/database/database.module';
 
 @Module({
   imports: [
+    DatabaseModule,
     JwtModule,
     TypeOrmModule.forFeature([User, Person]),
     EncryptionModule,

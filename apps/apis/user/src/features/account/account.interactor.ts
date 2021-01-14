@@ -1,11 +1,10 @@
-import { Injectable, Scope } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import omit from 'lodash/omit';
 import { User } from '../../core/database/sources/api/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Person } from '../../core/database/sources/api/entities/person.entity';
 import { SaltService } from '../../core/encryption/salt/salt.service';
-import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
+import { NewAccountDto } from './new-account.dto';
 
 /**
  * @mermaid
@@ -31,10 +30,8 @@ import { FindOneOptions } from 'typeorm/find-options/FindOneOptions';
  *    PERSON ||--|{ USER : has
  *    ACCOUNT_INTERACTOR ||--|| USER : administers
  */
-@Injectable({ scope: Scope.REQUEST })
+@Injectable()
 export class AccountInteractor {
-  private user: User;
-
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
@@ -42,6 +39,8 @@ export class AccountInteractor {
     private readonly personRepository: Repository<Person>,
     private readonly saltService: SaltService
   ) {}
+
+  private user: User;
 
   async validateCredentials(
     email: string,
@@ -60,5 +59,41 @@ export class AccountInteractor {
     }
 
     return (this.user = user);
+  }
+
+  async create({ email, name, password }: NewAccountDto): Promise<User | null> {
+    if (this.user) {
+      throw new InternalServerErrorException('user should be already set');
+    }
+
+    await this.userRepository.manager.transaction(async (manager) => {
+      const personRepository = manager.getRepository<Person>(Person);
+      const person: Person = personRepository.create({ name });
+      const {
+        identifiers: [{ id }],
+      } = await manager.insert(Person, person);
+
+      const userRepository = manager.getRepository<User>(User);
+      const user: User = userRepository.create({
+        email,
+        password,
+        personId: id,
+      });
+      await manager.insert(User, user);
+    });
+
+    return this.userRepository.findOne({ where: { email } });
+  }
+
+  async delete(): Promise<void> {
+    if (!this.user) {
+      throw new InternalServerErrorException(
+        'user should have been set already by jwt-guard'
+      );
+    }
+
+    const person = await this.user.person;
+    await this.personRepository.delete(person.id);
+    delete this.user;
   }
 }
