@@ -21,8 +21,17 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "parserOptions": { "project": "./tsconfig.*?.json" },
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error"
+      }
+    },
+    {
+      "files": ["*.tsx", ".jsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {
+        "jsx-a11y/heading-has-content": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

@@ -4,8 +4,6 @@ import {
   IsOptional,
   IsString,
   Length,
-  MaxLength,
-  MinLength,
 } from 'class-validator';
 
 export class NewAccountDto {

@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ConnectionModule } from './connection.module';
-import { EncryptionModule } from '../../../encryption/encryption.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConnectionProvider } from './connection.provider';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm/dist/interfaces/typeorm-options.interface';

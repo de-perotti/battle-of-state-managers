@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { ApiModule } from '../api.module';
-import { Connection, getConnection } from 'typeorm';
+import { getConnection } from 'typeorm';
 import { ConnectionProvider } from '../connection.provider';
 import { Person } from '../entities/person.entity';
 import { validate, version } from 'uuid';

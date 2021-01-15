@@ -14,8 +14,8 @@ export class AccountInterceptor implements NestInterceptor {
 
   async intercept(
     context: ExecutionContext,
-    next: CallHandler<any>
-  ): Promise<Observable<any>> {
+    next: CallHandler<unknown>
+  ): Promise<Observable<unknown>> {
     const req = context
       .switchToHttp()
       .getRequest<{ user?: { email?: string } }>();
