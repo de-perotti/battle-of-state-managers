@@ -4,7 +4,7 @@ import { AuthController } from './auth.controller';
 import { JwtModule } from './jwt/jwt.module';
 import { AccountService } from './account.service';
 import cookieParser from 'cookie-parser';
-import { AccountInterceptor } from './account.interceptor';
+import { AccountInteractorInjectionInterceptor } from './account-interactor-injection-interceptor.service';
 import { AccountInteractor } from './account.interactor';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../../core/database/sources/api/entities/user.entity';
@@ -19,7 +19,11 @@ import { DatabaseModule } from '../../core/database/database.module';
     TypeOrmModule.forFeature([Person, User]),
     EncryptionModule,
   ],
-  providers: [AccountService, AccountInterceptor, AccountInteractor],
+  providers: [
+    AccountService,
+    AccountInteractorInjectionInterceptor,
+    AccountInteractor,
+  ],
   controllers: [AuthController, AccountController],
 })
 export class AccountModule implements NestModule {

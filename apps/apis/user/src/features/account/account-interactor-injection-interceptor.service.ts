@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { AccountInteractor } from './account.interactor';
 
 @Injectable()
-export class AccountInterceptor implements NestInterceptor {
+export class AccountInteractorInjectionInterceptor implements NestInterceptor {
   constructor(private readonly accountInteractor: AccountInteractor) {}
 
   async intercept(
