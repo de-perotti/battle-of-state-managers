@@ -84,8 +84,7 @@
           "builder": "@nrwl/next:server",
           "options": {
             "buildTarget": "hubs-main:build",
-            "dev": true,
-            "proxyConfig": "apps/hubs/main/proxy.conf.json"
+            "dev": true
           },
           "configurations": {
             "production": {
