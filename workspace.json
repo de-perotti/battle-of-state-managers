@@ -71,10 +71,10 @@
           "options": {
             "commands": [
               {
-                "command": "yarn start apis-user"
+                "command": "nx serve apis-user"
               },
               {
-                "command": "yarn start hubs-main"
+                "command": "nx serve hubs-main"
               }
             ],
             "parallel": true

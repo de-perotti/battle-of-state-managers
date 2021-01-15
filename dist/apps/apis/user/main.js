@@ -182,7 +182,7 @@ ConfigurationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         imports: [
             _nestjs_config__WEBPACK_IMPORTED_MODULE_2__["ConfigModule"].forRoot({
                 envFilePath: [
-                     false && false,
+                     false ? undefined : '.env.dev',
                     '.env',
                 ].filter(lodash_identity__WEBPACK_IMPORTED_MODULE_3___default.a),
             }),
@@ -298,6 +298,7 @@ var _ormconfig_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webp
 const connectionConfig = Object(_nestjs_config__WEBPACK_IMPORTED_MODULE_0__["registerAs"])('api-db-connection', () => lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()(_ormconfig_json__WEBPACK_IMPORTED_MODULE_1__, {
     migrationsRun: Boolean(process.env.API_DB_RUN_MIGRATION &&
         process.env.API_DB_RUN_MIGRATION === 'true'),
+    host: process.env.API_DB_HOST,
     database: process.env.API_DB_NAME,
     username: process.env.API_DB_USER,
     password: process.env.API_DB_PASSWORD,
@@ -1562,19 +1563,14 @@ class NewAccountDto {
 }
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsString"])(),
-    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsEmail"])(),
-    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsNotEmpty"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
 ], NewAccountDto.prototype, "email", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsString"])(),
-    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsNotEmpty"])(),
-    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["Length"])(8, 256),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
 ], NewAccountDto.prototype, "password", void 0);
 Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsString"])(),
-    Object(class_validator__WEBPACK_IMPORTED_MODULE_1__["IsOptional"])(),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
 ], NewAccountDto.prototype, "name", void 0);
 

@@ -11,6 +11,7 @@ export const connectionConfig = registerAs('api-db-connection', () =>
       process.env.API_DB_RUN_MIGRATION &&
         process.env.API_DB_RUN_MIGRATION === 'true'
     ),
+    host: process.env.API_DB_HOST,
     database: process.env.API_DB_NAME,
     username: process.env.API_DB_USER,
     password: process.env.API_DB_PASSWORD,

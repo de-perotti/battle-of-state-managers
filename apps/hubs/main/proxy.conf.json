@@ -1,7 +1,11 @@
 {
-  "/user": {
-    "target": "http://localhost:3333/user",
+  "/something/user/*": {
+    "target": "http://localhost:3333",
+    "pathRewrite": {
+      "^/something/user/*": ""
+    },
     "secure": false,
-    "changeOrigin": false
+    "changeOrigin": false,
+    "logLevel": "debug"
   }
 }

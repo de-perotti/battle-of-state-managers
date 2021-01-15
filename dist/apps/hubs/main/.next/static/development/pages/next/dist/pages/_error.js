@@ -270,7 +270,7 @@ eval("module.exports = (__webpack_require__(/*! dll-reference dll_4e4825916ee28e
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fnext%2Fdist%2Fpages%2F_error&absolutePagePath=%2Fhome%2Fperotti%2Fworkspace%2Fcode%2Fbattle-of-state-managers%2Fnode_modules%2Fnext%2Fdist%2Fpages%2F_error.js ***!
   \*************************************************************************************************************************************************************************************************************/
@@ -293,4 +293,4 @@ eval("module.exports = dll_4e4825916ee28eb41fd8;//# sourceURL=[module]\n//# sour
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);

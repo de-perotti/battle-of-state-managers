@@ -6,7 +6,7 @@ import identity from 'lodash/identity';
   imports: [
     ConfigModule.forRoot({
       envFilePath: [
-        process.env.NODE_ENV === 'test' && '.env.test',
+        process.env.NODE_ENV === 'test' ? '.env.test' : '.env.dev',
         '.env',
       ].filter(identity),
     }),

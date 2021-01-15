@@ -8,6 +8,9 @@ services:
         condition: service_healthy
     volumes:
       - .:/app
+    ports:
+      - "4200"
+      - "3333"
 
   apis-user-db:
     image: postgres:12-alpine
