@@ -1,8 +1,10 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AccountController } from './account.controller';
 import { AuthController } from './auth.controller';
 import { JwtModule } from './jwt/jwt.module';
 import { AccountService } from './account.service';
+import cookieParser from 'cookie-parser';
+import { AccountInterceptor } from './account.interceptor';
 import { AccountInteractor } from './account.interactor';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../../core/database/sources/api/entities/user.entity';
@@ -14,10 +16,16 @@ import { DatabaseModule } from '../../core/database/database.module';
   imports: [
     DatabaseModule,
     JwtModule,
-    TypeOrmModule.forFeature([User, Person]),
+    TypeOrmModule.forFeature([Person, User]),
     EncryptionModule,
   ],
-  providers: [AccountService, AccountInteractor],
+  providers: [AccountService, AccountInterceptor, AccountInteractor],
   controllers: [AuthController, AccountController],
 })
-export class AccountModule {}
+export class AccountModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): MiddlewareConsumer {
+    return consumer
+      .apply(cookieParser())
+      .forRoutes(AccountController, AuthController);
+  }
+}

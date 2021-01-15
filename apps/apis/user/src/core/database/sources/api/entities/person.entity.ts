@@ -7,7 +7,7 @@ export class Person {
   id: string;
 
   @Index()
-  @Column({ name: 'name', type: 'varchar', length: 256 })
+  @Column({ name: 'name', type: 'varchar', length: 256, nullable: true })
   name: string;
 
   @OneToMany(() => User, (user) => user.person, { lazy: true })

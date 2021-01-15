@@ -6,12 +6,14 @@ import {
   HttpStatus,
   Post,
   UseGuards,
+  UseInterceptors,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { JwtGuard } from './jwt/jwt.guard';
 import { AccountInteractor } from './account.interactor';
 import { NewAccountDto } from './new-account.dto';
+import { AccountInterceptor } from './account.interceptor';
 
 @Controller('account')
 export class AccountController {
@@ -25,8 +27,9 @@ export class AccountController {
   }
 
   @Delete()
-  @UseGuards(JwtGuard)
   @HttpCode(HttpStatus.NO_CONTENT)
+  @UseGuards(JwtGuard)
+  @UseInterceptors(AccountInterceptor)
   async deleteAccount() {
     await this.accountInteractor.delete();
   }

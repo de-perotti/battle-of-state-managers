@@ -24,7 +24,7 @@ describe('Person Subscriber', () => {
     await runDatabaseDependentTest(
       app,
       connection,
-      async (connection: Connection): Promise<void> => {
+      async (): Promise<void> => {
         const personRepository = connection.getRepository<Person>(Person);
         expect(await personRepository.count()).toEqual(0);
 

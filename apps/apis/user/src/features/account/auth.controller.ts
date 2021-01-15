@@ -41,6 +41,7 @@ export class AuthController {
   }
 
   @Post('logout')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async logout(@Res({ passthrough: true }) response: Response) {
     const jwtConfig = this.configService.get<JwtConfig>('jwt');
     response.clearCookie(jwtConfig.cookieName);

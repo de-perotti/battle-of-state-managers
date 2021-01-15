@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Injectable, Scope } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { User } from '../../core/database/sources/api/entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -30,7 +30,7 @@ import { NewAccountDto } from './new-account.dto';
  *    PERSON ||--|{ USER : has
  *    ACCOUNT_INTERACTOR ||--|| USER : administers
  */
-@Injectable()
+@Injectable({ scope: Scope.REQUEST })
 export class AccountInteractor {
   constructor(
     @InjectRepository(User)
@@ -42,20 +42,27 @@ export class AccountInteractor {
 
   private user: User;
 
+  async init(payload: { email: string }): Promise<User | null> {
+    const user = await this.userRepository.findOne({
+      where: { email: payload.email },
+    });
+    if (!user) {
+      return null;
+    }
+
+    return (this.user = user);
+  }
+
   async validateCredentials(
     email: string,
     password: string
   ): Promise<User | null> {
     const user = await this.userRepository.findOne({ where: { email } });
-
-    if (!this.user) {
+    if (!user) {
       return null;
     }
 
-    const matches = await this.saltService.compare(
-      password,
-      this.user.password
-    );
+    const matches = await this.saltService.compare(password, user.password);
 
     if (!matches) {
       return null;
@@ -65,10 +72,6 @@ export class AccountInteractor {
   }
 
   async create({ email, name, password }: NewAccountDto): Promise<User | null> {
-    if (this.user) {
-      throw new InternalServerErrorException('user should be already set');
-    }
-
     await this.userRepository.manager.transaction(async (manager) => {
       const personRepository = manager.getRepository<Person>(Person);
       const person: Person = personRepository.create({ name });
@@ -85,16 +88,15 @@ export class AccountInteractor {
       await manager.insert(User, user);
     });
 
-    return this.userRepository.findOne({ where: { email } });
+    const user = await this.userRepository.findOne({ where: { email } });
+    if (!user) {
+      return null;
+    }
+
+    return (this.user = user);
   }
 
   async delete(): Promise<void> {
-    if (!this.user) {
-      throw new InternalServerErrorException(
-        'user should have been set already by jwt-guard'
-      );
-    }
-
     const person = await this.user.person;
     await this.personRepository.delete(person.id);
     delete this.user;

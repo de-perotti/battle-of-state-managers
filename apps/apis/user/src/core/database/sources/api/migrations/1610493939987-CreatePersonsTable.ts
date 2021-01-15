@@ -23,6 +23,7 @@ export class CreatePersonsTable1610493939987 implements MigrationInterface {
             name: 'name',
             type: 'varchar',
             length: '256',
+            isNullable: true,
           },
         ],
       }),
