@@ -63,6 +63,13 @@
     },
     "test-nest": {
       "tags": []
+    },
+    "hubs-dashboard": {
+      "tags": []
+    },
+    "hubs/dashboard-e2e": {
+      "tags": [],
+      "implicitDependencies": ["hubs-dashboard"]
     }
   }
 }

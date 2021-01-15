@@ -12,6 +12,14 @@ module.exports = withCompileNodeModules({
           source: '/something/user/:slug*',
           destination: 'http://localhost:3333/:slug*',
         },
+        process.env.NODE_ENV !== 'production' && {
+          source: '/dashboard',
+          destination: 'http://localhost:4201/dashboard',
+        },
+        process.env.NODE_ENV !== 'production' && {
+          source: '/dashboard/:slug*',
+          destination: 'http://localhost:4201/dashboard/:slug*',
+        },
       ].filter(identity);
     },
   })

@@ -76,6 +76,7 @@ Since architecture is going to be secondary to this experiment, we'll try to kee
 - [ ] Seguir o andamento [dessa issue](https://github.com/nestjs/typeorm/issues/66)
 - [ ] Criar uma lib de interfaces da api
 - [ ] Criar testes de contrato
+- [ ] Criar lib de configuração dos proxies
 
 # Development
 
