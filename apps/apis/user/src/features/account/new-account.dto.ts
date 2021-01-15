@@ -8,16 +8,16 @@ import {
 
 export class NewAccountDto {
   @IsString()
-  // @IsEmail()
-  // @IsNotEmpty()
+  @IsEmail()
+  @IsNotEmpty()
   email: string;
 
   @IsString()
-  // @IsNotEmpty()
-  // @Length(8, 256)
+  @IsNotEmpty()
+  @Length(8, 256)
   password: string;
 
   @IsString()
-  // @IsOptional()
+  @IsOptional()
   name?: string;
 }

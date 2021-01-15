@@ -4,27 +4,20 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { ApiAccountCreation, PageLogin, urls } from '../urls';
+import {
+  email,
+  password,
+  name,
+  passwordConfirmation,
+} from '../forms/validations';
 
 const formSchema = yup.object().shape({
-  name: yup.string().ensure(),
-  password: yup.string().min(8).max(256).required(),
-  passwordConfirmation: yup
-    .string()
-    .min(8)
-    .max(256)
-    .required()
-    .test(
-      'something',
-      'Passwords must match',
-      (passwordConfirmation, { parent }) =>
-        parent.password === passwordConfirmation
-    ),
-  email: yup.string().email().required(),
+  email,
+  password,
+  name,
+  passwordConfirmation,
 });
-
-class Dashboard {}
-
-const urls = new Map<unknown, string>([[Dashboard, '/']]);
 
 type SignUpInputs = {
   name: string;
@@ -42,14 +35,14 @@ const signUp = async ({
   password: string;
   name: string;
 }) =>
-  fetch('/something/user/account', {
+  fetch(urls.get(ApiAccountCreation), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ name, email, password }),
   }).then((res) => {
-    if (res.status === 204) {
+    if (res.status === 201) {
       return;
     }
 
@@ -66,13 +59,13 @@ export const SignUp: NextPage = () => {
     setLoading(true);
     void signUp(data)
       .then(() => {
-        void router.push(urls.get(Dashboard));
+        void router.push(urls.get(PageLogin));
       })
       .catch(() => setLoading(false));
   };
 
   useEffect(() => {
-    void router.prefetch(urls.get(Dashboard));
+    void router.prefetch(urls.get(PageLogin));
   }, [router]);
 
   return (
