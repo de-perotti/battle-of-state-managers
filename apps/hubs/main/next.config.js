@@ -9,7 +9,7 @@ module.exports = withCompileNodeModules({
     async rewrites() {
       return [
         process.env.NODE_ENV !== 'production' && {
-          source: '/something/user/:slug*',
+          source: '/api/user/:slug*',
           destination: 'http://localhost:3333/:slug*',
         },
         process.env.NODE_ENV !== 'production' && {

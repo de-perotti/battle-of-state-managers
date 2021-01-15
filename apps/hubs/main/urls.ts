@@ -8,6 +8,6 @@ export const urls = new Map<unknown, string>([
   [PageDashboard, '/dashboard'],
   [PageSignUp, '/signup'],
   [PageLogin, '/login'],
-  [ApiAccountCreation, '/something/user/account'],
-  [ApiSignIn, '/something/user/auth/login'],
+  [ApiAccountCreation, '/api/user/account'],
+  [ApiSignIn, '/api/user/auth/login'],
 ]);
