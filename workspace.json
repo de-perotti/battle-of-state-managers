@@ -1,11 +1,11 @@
 {
   "version": 1,
   "projects": {
-    "apis-user": {
+    "apis-users": {
       "root": "apps/apis/user",
       "sourceRoot": "apps/apis/users/src",
       "projectType": "application",
-      "prefix": "apis-user",
+      "prefix": "apis-users",
       "schematics": {},
       "architect": {
         "build": {
@@ -32,7 +32,7 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "apis-user:build"
+            "buildTarget": "apis-users:build"
           }
         },
         "lint": {
@@ -71,7 +71,10 @@
           "options": {
             "commands": [
               {
-                "command": "nx serve apis-user"
+                "command": "nx serve apis-users"
+              },
+              {
+                "command": "nx serve apis-forms"
               },
               {
                 "command": "nx serve hubs-dashboard"
@@ -425,6 +428,56 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/hubs/dashboard-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "apis-forms": {
+      "root": "apps/apis/forms",
+      "sourceRoot": "apps/apis/forms/src",
+      "projectType": "application",
+      "prefix": "apis-forms",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/apis/forms",
+            "main": "apps/apis/forms/src/main.ts",
+            "tsConfig": "apps/apis/forms/tsconfig.app.json",
+            "assets": ["apps/apis/forms/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/apis/forms/src/environments/environment.ts",
+                  "with": "apps/apis/forms/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "apis-forms:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/apis/forms/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/apis/forms/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

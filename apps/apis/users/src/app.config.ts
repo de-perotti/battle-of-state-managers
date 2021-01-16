@@ -6,5 +6,5 @@ export type AppConfig = {
 };
 
 export const appConfig = registerAs('app', () => ({
-  port: toFinite(process.env.PORT) || 3333,
+  port: toFinite(process.env.API_USER_PORT),
 }));

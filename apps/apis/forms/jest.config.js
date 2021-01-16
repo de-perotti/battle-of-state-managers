@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'apis-users',
+  displayName: 'apis-forms',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -10,6 +10,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/apps/apis/user',
-  maxConcurrency: 1, // Because databases
+  coverageDirectory: '../../../coverage/apps/apis/forms',
 };

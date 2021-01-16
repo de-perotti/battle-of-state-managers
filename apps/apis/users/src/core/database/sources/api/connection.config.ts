@@ -8,13 +8,13 @@ export type ConnectionConfig = TypeOrmModuleOptions;
 export const connectionConfig = registerAs('api-db-connection', () =>
   merge(config, {
     migrationsRun: Boolean(
-      process.env.API_DB_RUN_MIGRATION &&
-        process.env.API_DB_RUN_MIGRATION === 'true'
+      process.env.DB_API_RUN_MIGRATION &&
+        process.env.DB_API_RUN_MIGRATION === 'true'
     ),
-    host: process.env.API_DB_HOST,
-    database: process.env.API_DB_NAME,
-    username: process.env.API_DB_USER,
-    password: process.env.API_DB_PASSWORD,
-    logging: process.env.API_DB_LOGGING,
+    host: process.env.DB_API_HOST || undefined,
+    database: process.env.DB_API_NAME || undefined,
+    username: process.env.DB_API_USER || undefined,
+    password: process.env.DB_API_PASSWORD || undefined,
+    logging: process.env.DB_API_LOGGING || undefined,
   } as ConnectionConfig)
 );

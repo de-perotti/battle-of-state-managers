@@ -25,7 +25,7 @@
   "projects": {
     "hubs-main": {
       "tags": [],
-      "implicitDependencies": ["apis-user"]
+      "implicitDependencies": ["apis-users"]
     },
     "hubs-main-e2e": {
       "tags": [],
@@ -55,7 +55,7 @@
     "state-zustand": {
       "tags": []
     },
-    "apis-user": {
+    "apis-users": {
       "tags": []
     },
     "state-sweet-state": {
@@ -70,6 +70,9 @@
     "hubs/dashboard-e2e": {
       "tags": [],
       "implicitDependencies": ["hubs-dashboard"]
+    },
+    "apis-forms": {
+      "tags": []
     }
   }
 }
