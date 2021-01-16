@@ -1,5 +1,5 @@
 import { Column, Entity, Index, PrimaryColumn } from 'typeorm';
-import { BaseEntity } from '../../../shared/base.entity';
+import { BaseEntity } from '../../../shared/entities/base.entity';
 
 /**
  * @mermaid
