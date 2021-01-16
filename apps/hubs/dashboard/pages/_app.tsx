@@ -1,9 +1,16 @@
 import { AppProps } from 'next/app';
 import React, { FC } from 'react';
+import Link from 'next/link';
 import {
   Provider as AuthProvider,
   Consumer as AuthConsumer,
 } from '../features/auth/AuthContext';
+import {
+  PageDashboard,
+  PageFormAddress,
+  PageFormPersonal,
+  urls,
+} from '../core/urls';
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -37,6 +44,14 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
                 <form onSubmit={logout}>
                   <button type="submit">Deslogar</button>
                 </form>
+
+                <Link href={urls.get(PageDashboard)}>Home</Link>
+                <Link href={urls.get(PageFormAddress)}>
+                  Address Information
+                </Link>
+                <Link href={urls.get(PageFormPersonal)}>
+                  Personal Information
+                </Link>
 
                 <Component {...pageProps} />
               </>

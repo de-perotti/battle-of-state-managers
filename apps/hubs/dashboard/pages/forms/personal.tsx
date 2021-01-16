@@ -5,7 +5,7 @@ import {
   withFormContext,
 } from '../../features/forms/FormContext';
 import { useFieldArray, useForm } from 'react-hook-form';
-import { PageFormAddress, PageFormPersonal, urls } from '../../core/urls';
+import { PageDashboard, urls } from '../../core/urls';
 import { useRouter } from 'next/router';
 
 type PersonalInputs = {
@@ -45,7 +45,7 @@ const PersonalPage: NextPage = () => {
       <form
         onSubmit={handleSubmit((data) => {
           form.setPersonal(data);
-          void router.push(urls.get(PageFormAddress));
+          void router.push(urls.get(PageDashboard));
         })}
       >
         <div>

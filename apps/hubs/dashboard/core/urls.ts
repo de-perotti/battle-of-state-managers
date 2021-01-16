@@ -7,7 +7,7 @@ export class ApiAccountCreation {}
 export class ApiSignIn {}
 
 export const urls = new Map<unknown, string>([
-  [PageDashboard, '/dashboard'],
+  [PageDashboard, '/'],
   [PageSignUp, '/signup'],
   [PageLogin, '/login'],
   [PageFormAddress, '/forms/address'],
