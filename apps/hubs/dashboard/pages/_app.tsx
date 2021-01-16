@@ -38,11 +38,11 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
             return (
               <>
                 <form onSubmit={deleteAccount}>
-                  <button type="submit">Apagar Conta</button>
+                  <button type="submit">Delete Account</button>
                 </form>
 
                 <form onSubmit={logout}>
-                  <button type="submit">Deslogar</button>
+                  <button type="submit">Logout</button>
                 </form>
 
                 <Link href={urls.get(PageDashboard)}>Home</Link>

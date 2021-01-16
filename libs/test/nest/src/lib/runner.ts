@@ -6,15 +6,19 @@ import { INestApplication } from '@nestjs/common';
 
 export async function runDatabaseDependentTest(
   app: TestingModule,
-  connection: Connection,
+  connection: Connection | null,
   cb: () => Promise<void>
 ) {
   await app.init();
-  await cleanDatabase(connection);
+  if (connection) {
+    await cleanDatabase(connection);
+  }
   const error = await cb()
     .then(() => null)
     .catch(identity);
-  await connection.dropDatabase();
+  if (connection) {
+    await connection.dropDatabase();
+  }
   await app.close();
   if (error) {
     throw error;
@@ -23,16 +27,20 @@ export async function runDatabaseDependentTest(
 
 export async function runDatabaseDependentExternalTest(
   app: TestingModule,
-  connection: Connection,
+  connection: Connection | null,
   cb: (nestApplication: INestApplication) => Promise<void>
 ) {
   const nestApplication = app.createNestApplication();
   await nestApplication.init();
-  await cleanDatabase(connection);
+  if (connection) {
+    await cleanDatabase(connection);
+  }
   const error = await cb(nestApplication)
     .then(() => null)
     .catch(identity);
-  await connection.dropDatabase();
+  if (connection) {
+    await connection.dropDatabase();
+  }
   await nestApplication.close();
   if (error) {
     throw error;

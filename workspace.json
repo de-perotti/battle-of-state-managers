@@ -2,7 +2,7 @@
   "version": 1,
   "projects": {
     "apis-users": {
-      "root": "apps/apis/user",
+      "root": "apps/apis/users",
       "sourceRoot": "apps/apis/users/src",
       "projectType": "application",
       "prefix": "apis-users",
@@ -11,7 +11,7 @@
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/apis/user",
+            "outputPath": "dist/apps/apis/users",
             "main": "apps/apis/users/src/main.ts",
             "tsConfig": "apps/apis/users/tsconfig.app.json"
           },

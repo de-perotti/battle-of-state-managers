@@ -10,6 +10,6 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/apps/apis/user',
+  coverageDirectory: '../../../coverage/apps/apis/users',
   maxConcurrency: 1, // Because databases
 };
