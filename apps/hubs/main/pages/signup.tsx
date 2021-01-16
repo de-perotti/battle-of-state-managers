@@ -46,7 +46,7 @@ const signUp = async ({
       return;
     }
 
-    throw new Error('could not create account');
+    throw new Error('could not create accounts');
   });
 
 export const SignUp: NextPage = () => {

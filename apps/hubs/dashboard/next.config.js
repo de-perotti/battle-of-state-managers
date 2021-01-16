@@ -6,7 +6,7 @@ module.exports = withNx({
   async rewrites() {
     return [
       process.env.NODE_ENV !== 'production' && {
-        source: '/api/user/:slug*',
+        source: '/apis/users/:slug*',
         destination: 'http://localhost:3333/:slug*',
       },
     ].filter(identity);

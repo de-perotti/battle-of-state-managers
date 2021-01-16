@@ -6,7 +6,7 @@ import React, {
   useReducer,
 } from 'react';
 import noop from 'lodash/noop';
-import { PageLogin, urls } from '../../urls';
+import { PageLogin, urls } from '../../core/urls';
 
 type AuthContext = {
   authenticated: boolean;
@@ -48,13 +48,13 @@ function reducer(
 
 const authApi = {
   isAuthenticated: () =>
-    fetch('/api/user/auth/ping').then((res) => res.status === 200),
+    fetch('/apis/users/auth/ping').then((res) => res.status === 200),
   logout: () =>
-    fetch('/api/user/auth/logout', { method: 'POST' }).then(
+    fetch('/apis/users/auth/logout', { method: 'POST' }).then(
       (res) => res.status === 204
     ),
   deleteAccount: () =>
-    fetch('/api/user/account', { method: 'DELETE' }).then(
+    fetch('/apis/users/accounts', { method: 'DELETE' }).then(
       (res) => res.status === 204
     ),
 };

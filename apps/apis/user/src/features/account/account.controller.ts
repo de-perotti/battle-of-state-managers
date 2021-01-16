@@ -19,7 +19,7 @@ import { JwtConfig } from './jwt/jwt.config';
 import { ConfigService } from '@nestjs/config';
 import { Response } from 'express';
 
-@Controller('account')
+@Controller('accounts')
 export class AccountController {
   constructor(
     private readonly accountInteractor: AccountInteractor,

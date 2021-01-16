@@ -17,9 +17,9 @@ describe('Account Controller', () => {
     return { app };
   }
 
-  describe('(create) POST /account', () => {
+  describe('(create) POST /accounts', () => {
     describe('valid body', () => {
-      it('creates an account', async () => {
+      it('creates an accounts', async () => {
         const { app } = await setup();
         const connection = getConnection(
           app.get<ConnectionProvider>(ConnectionProvider).config.name
@@ -35,7 +35,7 @@ describe('Account Controller', () => {
             };
 
             await supertest(nestApplication.getHttpServer())
-              .post('/account')
+              .post('/accounts')
               .send(credentials)
               .expect(HttpStatus.CREATED);
 
@@ -54,5 +54,5 @@ describe('Account Controller', () => {
     // describe('invalid body', () => {});
   });
 
-  // describe('(delete) DELETE /account', () => {});
+  // describe('(delete) DELETE /accounts', () => {});
 });
