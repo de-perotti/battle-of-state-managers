@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AccountController | battle-of-state-managers</title>
+	<title>AuthController | battle-of-state-managers</title>
 	<meta name="description" content="Documentation for battle-of-state-managers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="accountcontroller.html">AccountController</a>
+					<a href="authcontroller.html">AuthController</a>
 				</li>
 			</ul>
-			<h1>Class AccountController</h1>
+			<h1>Class AuthController</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AccountController</span>
+						<span class="target">AuthController</span>
 					</li>
 				</ul>
 			</section>
@@ -81,21 +81,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="accountcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="authcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="accountcontroller.html#accountinteractor" class="tsd-kind-icon">account<wbr>Interactor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="accountcontroller.html#configservice" class="tsd-kind-icon">config<wbr>Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#accountservice" class="tsd-kind-icon">account<wbr>Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#configservice" class="tsd-kind-icon">config<wbr>Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="authcontroller.html#jwtservice" class="tsd-kind-icon">jwt<wbr>Service</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="accountcontroller.html#createaccount" class="tsd-kind-icon">create<wbr>Account</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="accountcontroller.html#deleteaccount" class="tsd-kind-icon">delete<wbr>Account</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="authcontroller.html#login" class="tsd-kind-icon">login</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="authcontroller.html#logout" class="tsd-kind-icon">logout</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="authcontroller.html#ping" class="tsd-kind-icon">ping</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,25 +109,28 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Account<wbr>Controller<span class="tsd-signature-symbol">(</span>accountInteractor<span class="tsd-signature-symbol">: </span><a href="accountinteractor.html" class="tsd-signature-type">AccountInteractor</a>, configService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigService</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accountcontroller.html" class="tsd-signature-type">AccountController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Auth<wbr>Controller<span class="tsd-signature-symbol">(</span>accountService<span class="tsd-signature-symbol">: </span><a href="accountservice.html" class="tsd-signature-type">AccountService</a>, configService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigService</span>, jwtService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JwtService</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="authcontroller.html" class="tsd-signature-type">AuthController</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.controller.ts#L23">apps/apis/users/src/features/account/account.controller.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L22">apps/apis/users/src/features/account/auth.controller.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>accountInteractor: <a href="accountinteractor.html" class="tsd-signature-type">AccountInteractor</a></h5>
+									<h5>accountService: <a href="accountservice.html" class="tsd-signature-type">AccountService</a></h5>
 								</li>
 								<li>
 									<h5>configService: <span class="tsd-signature-type">ConfigService</span></h5>
 								</li>
+								<li>
+									<h5>jwtService: <span class="tsd-signature-type">JwtService</span></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="accountcontroller.html" class="tsd-signature-type">AccountController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="authcontroller.html" class="tsd-signature-type">AuthController</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -133,12 +138,12 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="accountinteractor" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> account<wbr>Interactor</h3>
-					<div class="tsd-signature tsd-kind-icon">account<wbr>Interactor<span class="tsd-signature-symbol">:</span> <a href="accountinteractor.html" class="tsd-signature-type">AccountInteractor</a></div>
+					<a name="accountservice" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> account<wbr>Service</h3>
+					<div class="tsd-signature tsd-kind-icon">account<wbr>Service<span class="tsd-signature-symbol">:</span> <a href="accountservice.html" class="tsd-signature-type">AccountService</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.controller.ts#L25">apps/apis/users/src/features/account/account.controller.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L24">apps/apis/users/src/features/account/auth.controller.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -148,7 +153,17 @@
 					<div class="tsd-signature tsd-kind-icon">config<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConfigService</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.controller.ts#L26">apps/apis/users/src/features/account/account.controller.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L25">apps/apis/users/src/features/account/auth.controller.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="jwtservice" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> jwt<wbr>Service</h3>
+					<div class="tsd-signature tsd-kind-icon">jwt<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">JwtService</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L26">apps/apis/users/src/features/account/auth.controller.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,22 +171,25 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="createaccount" class="tsd-anchor"></a>
-					<h3>create<wbr>Account</h3>
+					<a name="login" class="tsd-anchor"></a>
+					<h3>login</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Account<span class="tsd-signature-symbol">(</span>body<span class="tsd-signature-symbol">: </span><a href="newaccountdto.html" class="tsd-signature-type">NewAccountDto</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">login<span class="tsd-signature-symbol">(</span>body<span class="tsd-signature-symbol">: </span><a href="authlogindto.html" class="tsd-signature-type">AuthLoginDto</a>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.controller.ts#L32">apps/apis/users/src/features/account/account.controller.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L37">apps/apis/users/src/features/account/auth.controller.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>body: <a href="newaccountdto.html" class="tsd-signature-type">NewAccountDto</a></h5>
+									<h5>body: <a href="authlogindto.html" class="tsd-signature-type">AuthLoginDto</a></h5>
+								</li>
+								<li>
+									<h5>response: <span class="tsd-signature-type">Response</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -179,16 +197,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="deleteaccount" class="tsd-anchor"></a>
-					<h3>delete<wbr>Account</h3>
+					<a name="logout" class="tsd-anchor"></a>
+					<h3>logout</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">delete<wbr>Account<span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">logout<span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Response</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.controller.ts#L40">apps/apis/users/src/features/account/account.controller.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L54">apps/apis/users/src/features/account/auth.controller.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -198,6 +216,23 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="ping" class="tsd-anchor"></a>
+					<h3>ping</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">ping<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/auth.controller.ts#L31">apps/apis/users/src/features/account/auth.controller.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -216,22 +251,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="accountcontroller.html" class="tsd-kind-icon">Account<wbr>Controller</a>
+						<a href="authcontroller.html" class="tsd-kind-icon">Auth<wbr>Controller</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="accountcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="authcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="accountcontroller.html#accountinteractor" class="tsd-kind-icon">account<wbr>Interactor</a>
+								<a href="authcontroller.html#accountservice" class="tsd-kind-icon">account<wbr>Service</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="accountcontroller.html#configservice" class="tsd-kind-icon">config<wbr>Service</a>
+								<a href="authcontroller.html#configservice" class="tsd-kind-icon">config<wbr>Service</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="authcontroller.html#jwtservice" class="tsd-kind-icon">jwt<wbr>Service</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="accountcontroller.html#createaccount" class="tsd-kind-icon">create<wbr>Account</a>
+								<a href="authcontroller.html#login" class="tsd-kind-icon">login</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="accountcontroller.html#deleteaccount" class="tsd-kind-icon">delete<wbr>Account</a>
+								<a href="authcontroller.html#logout" class="tsd-kind-icon">logout</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="authcontroller.html#ping" class="tsd-kind-icon">ping</a>
 							</li>
 						</ul>
 					</li>

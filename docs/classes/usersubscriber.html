@@ -90,6 +90,12 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="usersubscriber.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="usersubscriber.html#connection" class="tsd-kind-icon">connection</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
@@ -112,7 +118,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/0b746a6/apps/apis/user/src/core/database/sources/api/entities/user/user.listener.ts#L10">apps/apis/user/src/core/database/sources/api/entities/user/user.subscriber.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts#L11">apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -126,19 +132,32 @@
 					</ul>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="connection" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> connection</h3>
+					<div class="tsd-signature tsd-kind-icon">connection<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Connection</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts#L12">apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="beforeinsert" class="tsd-anchor"></a>
 					<h3>before<wbr>Insert</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">before<wbr>Insert<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InsertEvent</span><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">before<wbr>Insert<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">InsertEvent</span><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/0b746a6/apps/apis/user/src/core/database/sources/api/entities/user/user.listener.ts#L19">apps/apis/user/src/core/database/sources/api/entities/user/user.subscriber.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts#L20">apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -147,7 +166,7 @@
 									<h5>event: <span class="tsd-signature-type">InsertEvent</span><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -161,7 +180,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/0b746a6/apps/apis/user/src/core/database/sources/api/entities/user/user.listener.ts#L15">apps/apis/user/src/core/database/sources/api/entities/user/user.subscriber.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts#L16">apps/apis/users/src/core/database/sources/api/subscribers/user.subscriber.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="user.html" class="tsd-signature-type">User</a></h4>
@@ -188,6 +207,9 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="usersubscriber.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="usersubscriber.html#connection" class="tsd-kind-icon">connection</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="usersubscriber.html#beforeinsert" class="tsd-kind-icon">before<wbr>Insert</a>
 							</li>
@@ -213,6 +235,7 @@
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">

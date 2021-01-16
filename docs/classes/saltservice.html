@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HealthController | battle-of-state-managers</title>
+	<title>SaltService | battle-of-state-managers</title>
 	<meta name="description" content="Documentation for battle-of-state-managers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="healthcontroller.html">HealthController</a>
+					<a href="saltservice.html">SaltService</a>
 				</li>
 			</ul>
-			<h1>Class HealthController</h1>
+			<h1>Class SaltService</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">HealthController</span>
+						<span class="target">SaltService</span>
 					</li>
 				</ul>
 			</section>
@@ -81,21 +81,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="healthcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="saltservice.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="healthcontroller.html#db" class="tsd-kind-icon">db</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="healthcontroller.html#health" class="tsd-kind-icon">health</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="healthcontroller.html#memory" class="tsd-kind-icon">memory</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="saltservice.html#configservice" class="tsd-kind-icon">config<wbr>Service</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="saltservice.html#rounds" class="tsd-kind-icon">rounds</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="healthcontroller.html#readiness" class="tsd-kind-icon">readiness</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="saltservice.html#compare" class="tsd-kind-icon">compare</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="saltservice.html#salt" class="tsd-kind-icon">salt</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,64 +107,45 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Health<wbr>Controller<span class="tsd-signature-symbol">(</span>health<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HealthCheckService</span>, db<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TypeOrmHealthIndicator</span>, memory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MemoryHealthIndicator</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="healthcontroller.html" class="tsd-signature-type">HealthController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Salt<wbr>Service<span class="tsd-signature-symbol">(</span>configService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ConfigService</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="saltservice.html" class="tsd-signature-type">SaltService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L10">apps/apis/forms/src/core/health/health.controller.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/encryption/salt/salt.service.ts#L8">apps/apis/users/src/core/encryption/salt/salt.service.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>health: <span class="tsd-signature-type">HealthCheckService</span></h5>
-								</li>
-								<li>
-									<h5>db: <span class="tsd-signature-type">TypeOrmHealthIndicator</span></h5>
-								</li>
-								<li>
-									<h5>memory: <span class="tsd-signature-type">MemoryHealthIndicator</span></h5>
+									<h5>configService: <span class="tsd-signature-type">ConfigService</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="healthcontroller.html" class="tsd-signature-type">HealthController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="saltservice.html" class="tsd-signature-type">SaltService</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="db" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> db</h3>
-					<div class="tsd-signature tsd-kind-icon">db<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeOrmHealthIndicator</span></div>
+					<a name="configservice" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> config<wbr>Service</h3>
+					<div class="tsd-signature tsd-kind-icon">config<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConfigService</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L13">apps/apis/forms/src/core/health/health.controller.ts:13</a></li>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/health/health.controller.ts#L13">apps/apis/users/src/core/health/health.controller.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/encryption/salt/salt.service.ts#L10">apps/apis/users/src/core/encryption/salt/salt.service.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="health" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> health</h3>
-					<div class="tsd-signature tsd-kind-icon">health<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HealthCheckService</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="rounds" class="tsd-anchor"></a>
+					<h3>rounds</h3>
+					<div class="tsd-signature tsd-kind-icon">rounds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">SaltConfiguration</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">"rounds"</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L12">apps/apis/forms/src/core/health/health.controller.ts:12</a></li>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/health/health.controller.ts#L12">apps/apis/users/src/core/health/health.controller.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="memory" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> memory</h3>
-					<div class="tsd-signature tsd-kind-icon">memory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MemoryHealthIndicator</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L14">apps/apis/forms/src/core/health/health.controller.ts:14</a></li>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/health/health.controller.ts#L14">apps/apis/users/src/core/health/health.controller.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/encryption/salt/salt.service.ts#L8">apps/apis/users/src/core/encryption/salt/salt.service.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,19 +153,51 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="readiness" class="tsd-anchor"></a>
-					<h3>readiness</h3>
+					<a name="compare" class="tsd-anchor"></a>
+					<h3>compare</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">readiness<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HealthCheckResult</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">compare<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, hash<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L19">apps/apis/forms/src/core/health/health.controller.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/encryption/salt/salt.service.ts#L17">apps/apis/users/src/core/encryption/salt/salt.service.ts:17</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HealthCheckResult</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>hash: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="salt" class="tsd-anchor"></a>
+					<h3>salt</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">salt<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/encryption/salt/salt.service.ts#L21">apps/apis/users/src/core/encryption/salt/salt.service.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -203,22 +216,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="healthcontroller.html" class="tsd-kind-icon">Health<wbr>Controller</a>
+						<a href="saltservice.html" class="tsd-kind-icon">Salt<wbr>Service</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="healthcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="saltservice.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="healthcontroller.html#db" class="tsd-kind-icon">db</a>
+								<a href="saltservice.html#configservice" class="tsd-kind-icon">config<wbr>Service</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="healthcontroller.html#health" class="tsd-kind-icon">health</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="healthcontroller.html#memory" class="tsd-kind-icon">memory</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="saltservice.html#rounds" class="tsd-kind-icon">rounds</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="healthcontroller.html#readiness" class="tsd-kind-icon">readiness</a>
+								<a href="saltservice.html#compare" class="tsd-kind-icon">compare</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="saltservice.html#salt" class="tsd-kind-icon">salt</a>
 							</li>
 						</ul>
 					</li>

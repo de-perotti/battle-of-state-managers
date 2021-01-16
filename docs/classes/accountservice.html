@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HealthController | battle-of-state-managers</title>
+	<title>AccountService | battle-of-state-managers</title>
 	<meta name="description" content="Documentation for battle-of-state-managers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="healthcontroller.html">HealthController</a>
+					<a href="accountservice.html">AccountService</a>
 				</li>
 			</ul>
-			<h1>Class HealthController</h1>
+			<h1>Class AccountService</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">HealthController</span>
+						<span class="target">AccountService</span>
 					</li>
 				</ul>
 			</section>
@@ -81,21 +81,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="healthcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="accountservice.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="healthcontroller.html#db" class="tsd-kind-icon">db</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="healthcontroller.html#health" class="tsd-kind-icon">health</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="healthcontroller.html#memory" class="tsd-kind-icon">memory</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="accountservice.html#accountinteractor" class="tsd-kind-icon">account<wbr>Interactor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="accountservice.html#jwtservice" class="tsd-kind-icon">jwt<wbr>Service</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="healthcontroller.html#readiness" class="tsd-kind-icon">readiness</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="accountservice.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,28 +106,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Health<wbr>Controller<span class="tsd-signature-symbol">(</span>health<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HealthCheckService</span>, db<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TypeOrmHealthIndicator</span>, memory<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MemoryHealthIndicator</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="healthcontroller.html" class="tsd-signature-type">HealthController</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Account<wbr>Service<span class="tsd-signature-symbol">(</span>jwtService<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JwtService</span>, accountInteractor<span class="tsd-signature-symbol">: </span><a href="accountinteractor.html" class="tsd-signature-type">AccountInteractor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="accountservice.html" class="tsd-signature-type">AccountService</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L10">apps/apis/forms/src/core/health/health.controller.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.service.ts#L7">apps/apis/users/src/features/account/account.service.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>health: <span class="tsd-signature-type">HealthCheckService</span></h5>
+									<h5>jwtService: <span class="tsd-signature-type">JwtService</span></h5>
 								</li>
 								<li>
-									<h5>db: <span class="tsd-signature-type">TypeOrmHealthIndicator</span></h5>
-								</li>
-								<li>
-									<h5>memory: <span class="tsd-signature-type">MemoryHealthIndicator</span></h5>
+									<h5>accountInteractor: <a href="accountinteractor.html" class="tsd-signature-type">AccountInteractor</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="healthcontroller.html" class="tsd-signature-type">HealthController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="accountservice.html" class="tsd-signature-type">AccountService</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -136,35 +132,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="db" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> db</h3>
-					<div class="tsd-signature tsd-kind-icon">db<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeOrmHealthIndicator</span></div>
+					<a name="accountinteractor" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> account<wbr>Interactor</h3>
+					<div class="tsd-signature tsd-kind-icon">account<wbr>Interactor<span class="tsd-signature-symbol">:</span> <a href="accountinteractor.html" class="tsd-signature-type">AccountInteractor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L13">apps/apis/forms/src/core/health/health.controller.ts:13</a></li>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/health/health.controller.ts#L13">apps/apis/users/src/core/health/health.controller.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.service.ts#L10">apps/apis/users/src/features/account/account.service.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="health" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> health</h3>
-					<div class="tsd-signature tsd-kind-icon">health<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HealthCheckService</span></div>
+					<a name="jwtservice" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> jwt<wbr>Service</h3>
+					<div class="tsd-signature tsd-kind-icon">jwt<wbr>Service<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">JwtService</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L12">apps/apis/forms/src/core/health/health.controller.ts:12</a></li>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/health/health.controller.ts#L12">apps/apis/users/src/core/health/health.controller.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="memory" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> memory</h3>
-					<div class="tsd-signature tsd-kind-icon">memory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MemoryHealthIndicator</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L14">apps/apis/forms/src/core/health/health.controller.ts:14</a></li>
-							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/core/health/health.controller.ts#L14">apps/apis/users/src/core/health/health.controller.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.service.ts#L9">apps/apis/users/src/features/account/account.service.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,19 +155,28 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="readiness" class="tsd-anchor"></a>
-					<h3>readiness</h3>
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">readiness<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HealthCheckResult</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>email<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/core/health/health.controller.ts#L19">apps/apis/forms/src/core/health/health.controller.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/users/src/features/account/account.service.ts#L13">apps/apis/users/src/features/account/account.service.ts:13</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HealthCheckResult</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>email: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>password: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -203,22 +195,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="healthcontroller.html" class="tsd-kind-icon">Health<wbr>Controller</a>
+						<a href="accountservice.html" class="tsd-kind-icon">Account<wbr>Service</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="healthcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="accountservice.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="healthcontroller.html#db" class="tsd-kind-icon">db</a>
+								<a href="accountservice.html#accountinteractor" class="tsd-kind-icon">account<wbr>Interactor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="healthcontroller.html#health" class="tsd-kind-icon">health</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="healthcontroller.html#memory" class="tsd-kind-icon">memory</a>
+								<a href="accountservice.html#jwtservice" class="tsd-kind-icon">jwt<wbr>Service</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="healthcontroller.html#readiness" class="tsd-kind-icon">readiness</a>
+								<a href="accountservice.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>

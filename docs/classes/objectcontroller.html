@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UserService | battle-of-state-managers</title>
+	<title>ObjectController | battle-of-state-managers</title>
 	<meta name="description" content="Documentation for battle-of-state-managers">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="userservice.html">UserService</a>
+					<a href="objectcontroller.html">ObjectController</a>
 				</li>
 			</ul>
-			<h1>Class UserService</h1>
+			<h1>Class ObjectController</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">UserService</span>
+						<span class="target">ObjectController</span>
 					</li>
 				</ul>
 			</section>
@@ -78,68 +78,37 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="userservice.html#saltrounds" class="tsd-kind-icon">salt<wbr>Rounds</a></li>
-							</ul>
-						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="userservice.html#hashpassword" class="tsd-kind-icon">hash<wbr>Password</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="userservice.html#passwordmatches" class="tsd-kind-icon">password<wbr>Matches</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="objectcontroller.html#create" class="tsd-kind-icon">create</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="saltrounds" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> salt<wbr>Rounds</h3>
-					<div class="tsd-signature tsd-kind-icon">salt<wbr>Rounds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">10</span><span class="tsd-signature-symbol"> = 10</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in apps/apis/user/src/core/database/sources/api/entities/user/user.service.ts:6</li>
-						</ul>
-					</aside>
-				</section>
-			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="hashpassword" class="tsd-anchor"></a>
-					<h3>hash<wbr>Password</h3>
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">hash<wbr>Password<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><a href="jsonobjectdto.html" class="tsd-signature-type">JsonObjectDto</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="jsonobjectdto.html" class="tsd-signature-type">JsonObjectDto</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in apps/apis/user/src/core/database/sources/api/entities/user/user.service.ts:10</li>
+									<li>Defined in <a href="https://github.com/perottilds/battle-of-state-managers/blob/6295afd/apps/apis/forms/src/features/object/object.controller.ts#L14">apps/apis/forms/src/features/object/object.controller.ts:14</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="passwordmatches" class="tsd-anchor"></a>
-					<h3>password<wbr>Matches</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">password<wbr>Matches<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in apps/apis/user/src/core/database/sources/api/entities/user/user.service.ts:8</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <a href="jsonobjectdto.html" class="tsd-signature-type">JsonObjectDto</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="jsonobjectdto.html" class="tsd-signature-type">JsonObjectDto</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -158,16 +127,10 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="userservice.html" class="tsd-kind-icon">User<wbr>Service</a>
+						<a href="objectcontroller.html" class="tsd-kind-icon">Object<wbr>Controller</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="userservice.html#saltrounds" class="tsd-kind-icon">salt<wbr>Rounds</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="userservice.html#hashpassword" class="tsd-kind-icon">hash<wbr>Password</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="userservice.html#passwordmatches" class="tsd-kind-icon">password<wbr>Matches</a>
+								<a href="objectcontroller.html#create" class="tsd-kind-icon">create</a>
 							</li>
 						</ul>
 					</li>
@@ -188,6 +151,7 @@
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
