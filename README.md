@@ -93,13 +93,13 @@ yarn serve:hubs:main
 
 ```shell
 # Running migrations on api
-yarn typeorm migration:run -f apps/apis/user/src/core/database/sources/api/ormconfig.json -c <connection name>
+yarn typeorm migration:run -f apps/apis/users/src/core/database/sources/api/ormconfig.json -c <connection name>
 
 # Verifying if models are compatible with migrations
-yarn typeorm schema:log -f apps/apis/user/src/core/database/sources/api/ormconfig.json -c <connection name>
+yarn typeorm schema:log -f apps/apis/users/src/core/database/sources/api/ormconfig.json -c <connection name>
 
 # Drops table the connection targets
-yarn typeorm schema:drop -f apps/apis/user/src/core/database/sources/api/ormconfig.json -c <connection name>
+yarn typeorm schema:drop -f apps/apis/users/src/core/database/sources/api/ormconfig.json -c <connection name>
 ```
 
 

@@ -3,7 +3,7 @@
   "projects": {
     "apis-user": {
       "root": "apps/apis/user",
-      "sourceRoot": "apps/apis/user/src",
+      "sourceRoot": "apps/apis/users/src",
       "projectType": "application",
       "prefix": "apis-user",
       "schematics": {},
@@ -12,8 +12,8 @@
           "builder": "@nrwl/node:build",
           "options": {
             "outputPath": "dist/apps/apis/user",
-            "main": "apps/apis/user/src/main.ts",
-            "tsConfig": "apps/apis/user/tsconfig.app.json"
+            "main": "apps/apis/users/src/main.ts",
+            "tsConfig": "apps/apis/users/tsconfig.app.json"
           },
           "configurations": {
             "production": {
@@ -22,8 +22,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/apis/user/src/core/configuration/environments/environment.ts",
-                  "with": "apps/apis/user/src/core/configuration/environments/environment.prod.ts"
+                  "replace": "apps/apis/users/src/core/configuration/environments/environment.ts",
+                  "with": "apps/apis/users/src/core/configuration/environments/environment.prod.ts"
                 }
               ]
             }
@@ -38,13 +38,13 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/apis/user/**/*.ts"]
+            "lintFilePatterns": ["apps/apis/users/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/apis/user/jest.config.js",
+            "jestConfig": "apps/apis/users/jest.config.js",
             "passWithNoTests": true
           }
         }
