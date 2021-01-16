@@ -1,8 +1,9 @@
 import { Column, Entity, Index, OneToMany, PrimaryColumn } from 'typeorm';
 import { User } from './user.entity';
+import { BaseEntity } from '../../../shared/entities/base.entity';
 
 @Entity('persons')
-export class Person {
+export class Person extends BaseEntity {
   @PrimaryColumn({ type: 'uuid' })
   id: string;
 

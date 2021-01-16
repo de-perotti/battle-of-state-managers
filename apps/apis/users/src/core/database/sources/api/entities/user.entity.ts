@@ -1,5 +1,4 @@
 import {
-  BaseEntity,
   Column,
   Entity,
   Index,
@@ -8,6 +7,7 @@ import {
   PrimaryColumn,
 } from 'typeorm';
 import { Person } from './person.entity';
+import { BaseEntity } from '../../../shared/entities/base.entity';
 
 @Entity('users')
 export class User extends BaseEntity {

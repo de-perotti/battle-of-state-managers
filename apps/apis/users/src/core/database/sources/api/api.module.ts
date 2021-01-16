@@ -10,6 +10,8 @@ import omit from 'lodash/omit';
 const OrmModule = TypeOrmModule.forRootAsync({
   imports: [ConnectionModule],
   useFactory(connection: ConnectionProvider) {
+    // Omits name because async typeorm module doesn't accept name in its options
+    // Instead the name should be hardcoded in the root DynamicModule options
     return omit(connection.config, 'name') as TypeOrmModuleOptions;
   },
   inject: [ConnectionProvider],

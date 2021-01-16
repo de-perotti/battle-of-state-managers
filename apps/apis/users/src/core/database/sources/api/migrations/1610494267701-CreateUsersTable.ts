@@ -2,6 +2,7 @@ import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 import { CreatePersonsTable1610493939987 } from './1610493939987-CreatePersonsTable';
 import { TableColumnOptions } from 'typeorm/schema-builder/options/TableColumnOptions';
 import { TableForeignKeyOptions } from 'typeorm/schema-builder/options/TableForeignKeyOptions';
+import { dateColumns } from '../../../shared/migrations/dates';
 
 export class CreateUsersTable1610494267701 implements MigrationInterface {
   public static TABLE_NAME = 'users';
@@ -46,6 +47,7 @@ export class CreateUsersTable1610494267701 implements MigrationInterface {
         type: 'uuid',
         isNullable: false,
       },
+      ...dateColumns,
     ];
 
     await queryRunner.createTable(

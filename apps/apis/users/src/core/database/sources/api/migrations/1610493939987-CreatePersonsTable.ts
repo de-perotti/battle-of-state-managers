@@ -1,4 +1,5 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { dateColumns } from '../../../shared/migrations/dates';
 
 export class CreatePersonsTable1610493939987 implements MigrationInterface {
   public static TABLE_NAME = 'persons';
@@ -25,6 +26,7 @@ export class CreatePersonsTable1610493939987 implements MigrationInterface {
             length: '256',
             isNullable: true,
           },
+          ...dateColumns,
         ],
       }),
       false,
