@@ -1,4 +1,15 @@
-# BattleOfStateManagers
+Just a reminder:
+
+I was trying to set up a functional authentication feature:
+- create the entities
+- create migrations
+- create authentication guard
+- create sign in action
+- create sign out action
+- create delete account action
+- as a poc, write-through/read-through cache interceptors
+
+# Battle of State Managers
 
 ## Goal
 
@@ -10,26 +21,25 @@ What we are trying to achieve here is to analyze how well does each of the state
 ## Definition of done
 
 The application:
-- Authenticates a user before allowing for interacting with the forms
-- Provides a multi-page form
-- Has a feature flag in place to allow for unauthenticated users to fill the forms before being prompt to login to submit this form
-- Allows the form to be filled in any sequence the user sees fit
-- Doesn't necessarily have styling applied to its pages 
+- [ ] Authenticates a user before allowing for interacting with the forms
+- [ ] Provides a multi-page form
+- [ ] A feature flag allows for unauthenticated users to fill the forms before being prompt to login to submit this form
+- [ ] Allows the form to be filled in any sequence the user sees fit 
 
 ## State Managers
 
 As it was mentioned above, we are going to look at a number of state managers, some more well-known than others.
 The list below can be outdated however we are working on to keep it current:
 
-- Apollo
-- Jotai
-- Mobx
-- Recoil
-- Redux
-- Relay
-- Sweet State
-- State While Revalidate
-- Zustand 
+- [ ] Apollo
+- [ ] Jotai
+- [ ] Mobx
+- [ ] Recoil
+- [ ] Redux
+- [ ] Relay
+- [ ] Sweet State
+- [ ] State While Revalidate
+- [ ] Zustand 
 
 As each library brings something different to the table, we quickly acknowledge the need to adapt the architecture to each of its needs.
 We take this opportunity to understand how we can better decouple react applications from state management or, better yet, how to bring already existing best practices for backend applications such as dependency injection, SOLID, SOC, and others.
@@ -58,6 +68,40 @@ In descending order of evaluation criteria:
 ## Documentation
 
 Since architecture is going to be secondary to this experiment, we'll try to keep its documentation directly in the code through the use of [`typedocs`](https://typedoc.org/) and [`mermaidjs`](https://kamiazya.github.io/typedoc-plugin-mermaid/).
+
+## TODO
+
+- [ ] Add git hooks
+- [ ] Improve on configuration. Strings dont seem to be the best choice
+- [ ] Seguir o andamento [dessa issue](https://github.com/nestjs/typeorm/issues/66)
+- [ ] Criar uma lib de interfaces da api
+- [ ] Criar testes de contrato
+- [ ] Criar lib de configuração dos proxies
+
+# Development
+
+## Commands
+
+- Running apps:
+
+```shell
+# Start main hub with it's dependencies
+yarn serve:hubs:main
+```
+
+- Migrations
+
+```shell
+# Running migrations on api
+yarn typeorm migration:run -f apps/apis/users/src/core/database/sources/api/ormconfig.json -c <connection name>
+
+# Verifying if models are compatible with migrations
+yarn typeorm schema:log -f apps/apis/users/src/core/database/sources/api/ormconfig.json -c <connection name>
+
+# Drops table the connection targets
+yarn typeorm schema:drop -f apps/apis/users/src/core/database/sources/api/ormconfig.json -c <connection name>
+```
+
 
 --- 
 

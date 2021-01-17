@@ -1,7 +1,0 @@
-{
-  "/user": {
-    "target": "http://localhost:3333/user",
-    "secure": false,
-    "changeOrigin": false
-  }
-}

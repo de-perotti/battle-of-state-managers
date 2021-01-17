@@ -1,6 +1,55 @@
 {
   "version": 1,
   "projects": {
+    "apis-users": {
+      "root": "apps/apis/users",
+      "sourceRoot": "apps/apis/users/src",
+      "projectType": "application",
+      "prefix": "apis-users",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/apis/users",
+            "main": "apps/apis/users/src/main.ts",
+            "tsConfig": "apps/apis/users/tsconfig.app.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/apis/users/src/core/configuration/environments/environment.ts",
+                  "with": "apps/apis/users/src/core/configuration/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "apis-users:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/apis/users/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/apis/users/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "hubs-main": {
       "root": "apps/hubs/main",
       "sourceRoot": "apps/hubs/main",
@@ -17,12 +66,31 @@
             "production": {}
           }
         },
+        "serve-with-services": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "nx serve apis-users"
+              },
+              {
+                "command": "nx serve apis-forms"
+              },
+              {
+                "command": "nx serve hubs-dashboard"
+              },
+              {
+                "command": "nx serve hubs-main"
+              }
+            ],
+            "parallel": true
+          }
+        },
         "serve": {
           "builder": "@nrwl/next:server",
           "options": {
             "buildTarget": "hubs-main:build",
-            "dev": true,
-            "proxyConfig": "apps/hubs/main/proxy.conf.json"
+            "dev": true
           },
           "configurations": {
             "production": {
@@ -52,7 +120,7 @@
         }
       }
     },
-    "hubs/main-e2e": {
+    "hubs-main-e2e": {
       "root": "apps/hubs/main-e2e",
       "sourceRoot": "apps/hubs/main-e2e/src",
       "projectType": "application",
@@ -246,56 +314,6 @@
         }
       }
     },
-    "apis-user": {
-      "root": "apps/apis/user",
-      "sourceRoot": "apps/apis/user/src",
-      "projectType": "application",
-      "prefix": "apis-user",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "options": {
-            "outputPath": "dist/apps/apis/user",
-            "main": "apps/apis/user/src/main.ts",
-            "tsConfig": "apps/apis/user/tsconfig.app.json",
-            "assets": ["apps/apis/user/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/apis/user/src/environments/environment.ts",
-                  "with": "apps/apis/user/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "apis-user:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/apis/user/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/apis/user/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "state-sweet-state": {
       "root": "libs/state/sweet-state",
       "sourceRoot": "libs/state/sweet-state/src",
@@ -312,6 +330,153 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/state/sweet-state/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "test-nest": {
+      "root": "libs/test/nest",
+      "sourceRoot": "libs/test/nest/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/test/nest/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/test/nest/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "hubs-dashboard": {
+      "root": "apps/hubs/dashboard",
+      "sourceRoot": "apps/hubs/dashboard",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/next:build",
+          "options": {
+            "root": "apps/hubs/dashboard",
+            "outputPath": "dist/apps/hubs/dashboard"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "hubs-dashboard:build",
+            "dev": true,
+            "port": 4201
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "hubs-dashboard:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "builder": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "hubs-dashboard:build:production"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/hubs/dashboard/**/*.{ts,tsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/hubs/dashboard/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "hubs/dashboard-e2e": {
+      "root": "apps/hubs/dashboard-e2e",
+      "sourceRoot": "apps/hubs/dashboard-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/hubs/dashboard-e2e/cypress.json",
+            "tsConfig": "apps/hubs/dashboard-e2e/tsconfig.e2e.json",
+            "devServerTarget": "hubs-dashboard:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hubs-dashboard:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/hubs/dashboard-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "apis-forms": {
+      "root": "apps/apis/forms",
+      "sourceRoot": "apps/apis/forms/src",
+      "projectType": "application",
+      "prefix": "apis-forms",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/apis/forms",
+            "main": "apps/apis/forms/src/main.ts",
+            "tsConfig": "apps/apis/forms/tsconfig.app.json",
+            "assets": ["apps/apis/forms/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/apis/forms/src/environments/environment.ts",
+                  "with": "apps/apis/forms/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "apis-forms:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/apis/forms/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/apis/forms/jest.config.js",
             "passWithNoTests": true
           }
         }

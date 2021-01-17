@@ -1,0 +1,58 @@
+services:
+  hubs-main:
+    build:
+      context: .
+    image: battle-of-state-managers
+    depends_on:
+      apis-users-db:
+        condition: service_healthy
+      apis-forms-db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+    ports:
+      - "4200"
+      - "3333"
+
+  apis-users-db:
+    image: postgres:12-alpine
+    # https://github.com/peter-evans/docker-compose-healthcheck
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: api_development
+    volumes:
+      - /var/lib/postgresql/data
+
+  apis-users-db-test:
+    extends:
+      service: apis-users-db
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: api_test
+    volumes: []
+
+  apis-forms-db:
+    image: postgres:12-alpine
+    # https://github.com/peter-evans/docker-compose-healthcheck
+    healthcheck:
+      test: [ "CMD-SHELL","pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: api_development
+    volumes:
+      - /var/lib/postgresql/data

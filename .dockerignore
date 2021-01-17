@@ -1,0 +1,16 @@
+*
+!apps/apis/**
+!apps/hubs/main/**
+!libs/**
+!.editorconfig
+!.eslintrc.json
+!.prettierignore
+!.prettierrc
+!babel.config.json
+!jest.config.js
+!jest.preset.js
+!nx.json
+!package.json
+!tsconfig.base.json
+!workspace.json
+!yarn.lock

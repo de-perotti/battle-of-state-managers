@@ -24,9 +24,10 @@
   },
   "projects": {
     "hubs-main": {
-      "tags": []
+      "tags": [],
+      "implicitDependencies": ["apis-users"]
     },
-    "hubs/main-e2e": {
+    "hubs-main-e2e": {
       "tags": [],
       "implicitDependencies": ["hubs-main"]
     },
@@ -54,10 +55,23 @@
     "state-zustand": {
       "tags": []
     },
-    "apis-user": {
+    "apis-users": {
       "tags": []
     },
     "state-sweet-state": {
+      "tags": []
+    },
+    "test-nest": {
+      "tags": []
+    },
+    "hubs-dashboard": {
+      "tags": []
+    },
+    "hubs/dashboard-e2e": {
+      "tags": [],
+      "implicitDependencies": ["hubs-dashboard"]
+    },
+    "apis-forms": {
       "tags": []
     }
   }

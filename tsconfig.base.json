@@ -10,13 +10,8 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -24,9 +19,7 @@
       "@battle-of-state-managers/state/jotai": [
         "libs/state/jotai/src/index.ts"
       ],
-      "@battle-of-state-managers/state/mobx": [
-        "libs/state/mobx/src/index.ts"
-      ],
+      "@battle-of-state-managers/state/mobx": ["libs/state/mobx/src/index.ts"],
       "@battle-of-state-managers/state/apollo": [
         "libs/state/apollo/src/index.ts"
       ],
@@ -39,19 +32,15 @@
       "@battle-of-state-managers/state/relay": [
         "libs/state/relay/src/index.ts"
       ],
-      "@battle-of-state-managers/state/swr": [
-        "libs/state/swr/src/index.ts"
-      ],
+      "@battle-of-state-managers/state/swr": ["libs/state/swr/src/index.ts"],
       "@battle-of-state-managers/state/zustand": [
         "libs/state/zustand/src/index.ts"
       ],
       "@battle-of-state-managers/state/sweet-state": [
         "libs/state/sweet-state/src/index.ts"
-      ]
+      ],
+      "@battle-of-state-managers/test/nest": ["libs/test/nest/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
