@@ -1,15 +1,16 @@
 {
+  "name": "form",
   "type": "postgres",
-  "host": "localhost",
+  "host": "apis-form-db",
   "username": "user",
   "port": 5433,
   "password": "password",
-  "database": "api_development",
+  "database": "development",
   "maxQueryExecutionTime": 200,
   "migrationsTransactionMode": "each",
   "migrations": ["apps/apis/forms/src/core/database/sources/form/migrations/*.ts"],
   "entities": ["apps/apis/forms/src/core/database/sources/form/entities/**/*.entity.ts"],
-  "logging": "all",
+  "logging": "error",
   "cli": {
     "entitiesDir": "apps/apis/forms/src/core/database/sources/form/entities",
     "migrationsDir": "apps/apis/forms/src/core/database/sources/form/migrations"

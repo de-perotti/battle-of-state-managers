@@ -9,6 +9,7 @@ import { AccountInteractor } from './account.interactor';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../../core/database/sources/api/entities/user.entity';
 import { Person } from '../../core/database/sources/api/entities/person.entity';
+import config from '../../core/database/sources/api/ormconfig.json';
 import { EncryptionModule } from '../../core/encryption/encryption.module';
 import { DatabaseModule } from '../../core/database/database.module';
 
@@ -16,7 +17,7 @@ import { DatabaseModule } from '../../core/database/database.module';
   imports: [
     DatabaseModule,
     JwtModule,
-    TypeOrmModule.forFeature([Person, User]),
+    TypeOrmModule.forFeature([Person, User], config.name),
     EncryptionModule,
   ],
   providers: [

@@ -2,7 +2,9 @@ services:
   hubs-main:
     build:
       context: .
+      target: dev
     image: battle-of-state-managers
+    command: tail -f /dev/null
     depends_on:
       apis-users-db:
         condition: service_healthy
@@ -11,36 +13,34 @@ services:
     volumes:
       - .:/app
     ports:
-      - "4200"
-      - "3333"
+      - "4200:4200"
+      - "3333:3333"
 
   apis-users-db:
-    image: postgres:12-alpine
-    # https://github.com/peter-evans/docker-compose-healthcheck
-    healthcheck:
-      test: ["CMD-SHELL","pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    extends:
+      service: db
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: api_development
-    volumes:
-      - /var/lib/postgresql/data
 
   apis-users-db-test:
     extends:
-      service: apis-users-db
-    environment:
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: test
-      POSTGRES_DB: api_test
-    volumes: []
+      service: db-test
+    ports:
+      - "5432:5432"
 
   apis-forms-db:
+    extends:
+      service: db
+    ports:
+      - "5433:5432"
+
+  apis-forms-db-test:
+    extends:
+      service: db-test
+    ports:
+      - "5433:5432"
+
+  db-test:
     image: postgres:12-alpine
     # https://github.com/peter-evans/docker-compose-healthcheck
     healthcheck:
@@ -48,11 +48,19 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    ports:
-      - "5433:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+
+  db:
+    extends:
+      service: db-test
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: api_development
+      POSTGRES_DB: development
     volumes:
       - /var/lib/postgresql/data
+
+

@@ -1,25 +1,34 @@
-import { Connection } from 'typeorm';
+import { Connection, getConnection } from 'typeorm';
 import { TestingModule } from '@nestjs/testing/testing-module';
 import identity from 'lodash/identity';
-import { cleanDatabase } from './database';
 import { INestApplication } from '@nestjs/common';
 
 export async function runDatabaseDependentTest(
   app: TestingModule,
-  connection: Connection | null,
-  cb: () => Promise<void>
+  connectionName: string,
+  cb: (connection: Connection) => Promise<void>
 ) {
   await app.init();
-  if (connection) {
-    await cleanDatabase(connection);
+  const connection = (() => {
+    try {
+      return getConnection(connectionName);
+    } catch (e) {
+      return null;
+    }
+  })();
+
+  if (!connection) {
+    await app.close();
+    throw new Error('There must be a valid connection');
   }
-  const error = await cb()
+
+  const error = await cb(connection)
     .then(() => null)
     .catch(identity);
-  if (connection) {
-    await connection.dropDatabase();
-  }
+  await connection.dropDatabase();
   await app.close();
+  await connection.close();
+
   if (error) {
     throw error;
   }
@@ -30,17 +39,15 @@ export async function runDatabaseDependentExternalTest(
   connection: Connection | null,
   cb: (nestApplication: INestApplication) => Promise<void>
 ) {
+  if (!connection) {
+    throw new Error('There must be a valid connection');
+  }
   const nestApplication = app.createNestApplication();
   await nestApplication.init();
-  if (connection) {
-    await cleanDatabase(connection);
-  }
   const error = await cb(nestApplication)
     .then(() => null)
     .catch(identity);
-  if (connection) {
-    await connection.dropDatabase();
-  }
+  await connection.dropDatabase();
   await nestApplication.close();
   if (error) {
     throw error;

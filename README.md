@@ -9,6 +9,16 @@ I was trying to set up a functional authentication feature:
 - create delete account action
 - as a poc, write-through/read-through cache interceptors
 
+Parallel database tests
+- Require environment first, so we know which databases to target
+- Run the migrations imperatively using a nest script
+- Dump the databases onto temporary files. Each file has the database name
+- Now instead of running migrations
+  - Create a random database name
+  - Create a connection with this name
+  - Before every test, create a database from each dump
+  - After every test, drop database
+
 # Battle of State Managers
 
 ## Goal
@@ -71,12 +81,21 @@ Since architecture is going to be secondary to this experiment, we'll try to kee
 
 ## TODO
 
+- [ ] Enhance orm usage by creating a dynamic module
+- [ ] Dashboard vira auth
+- [ ] Mutation testing by default
+- [ ] Shit in here only goes in with TDD
+- [ ] Adicionar um admin panel (admin-bro)
+    - [ ] Mover api database module para uma lib
+    - [ ] Separar o modelo do schema
 - [ ] Add git hooks
 - [ ] Improve on configuration. Strings dont seem to be the best choice
 - [ ] Seguir o andamento [dessa issue](https://github.com/nestjs/typeorm/issues/66)
 - [ ] Criar uma lib de interfaces da api
 - [ ] Criar testes de contrato
 - [ ] Criar lib de configuração dos proxies
+- [ ] Usar o bosm como o precursor dos meus clones
+- [ ] bosm agora é meu monorepo para tudo e somente irei praticar novas coisas aqui
 
 # Development
 

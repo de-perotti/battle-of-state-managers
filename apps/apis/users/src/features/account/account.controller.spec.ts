@@ -1,29 +1,46 @@
 import { AccountModule } from './account.module';
 import { Test } from '@nestjs/testing';
 import { AccountInteractor } from './account.interactor';
-import { runDatabaseDependentExternalTest } from '@battle-of-state-managers/test/nest';
-import { ConnectionProvider } from '../../core/database/sources/api/connection.provider';
+import {
+  loadDump,
+  runDatabaseDependentExternalTest,
+} from '@battle-of-state-managers/test/nest';
 import { getConnection } from 'typeorm';
+import { v4 as uuidv4 } from 'uuid';
 import { NewAccountDto } from './new-account.dto';
 import supertest from 'supertest';
 import { HttpStatus } from '@nestjs/common';
 import { User } from '../../core/database/sources/api/entities/user.entity';
+import { connectionConfig } from '../../core/database/sources/api/connection/connection.config';
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { ConnectionConfigProvider } from '../../core/database/sources/api/connection/connection-config.provider';
 
 describe('Account Controller', () => {
   async function setup() {
+    const c = connectionConfig();
+    const config: PostgresConnectionOptions = {
+      ...connectionConfig(),
+      database: c.database + uuidv4().replace(/-/g, ''),
+      type: 'postgres',
+    };
+    await loadDump(c.database, config);
+
     const app = await Test.createTestingModule({
       imports: [AccountModule],
-    }).compile();
-    return { app };
+    })
+      .overrideProvider(ConnectionConfigProvider)
+      .useValue({ config })
+      .compile();
+
+    const connection = getConnection(config.name);
+
+    return { app, connection };
   }
 
   describe('(create) POST /accounts', () => {
     describe('valid body', () => {
       it('creates an accounts', async () => {
-        const { app } = await setup();
-        const connection = getConnection(
-          app.get<ConnectionProvider>(ConnectionProvider).config.name
-        );
+        const { app, connection } = await setup();
 
         await runDatabaseDependentExternalTest(
           app,
@@ -51,8 +68,5 @@ describe('Account Controller', () => {
         );
       });
     });
-    // describe('invalid body', () => {});
   });
-
-  // describe('(delete) DELETE /accounts', () => {});
 });

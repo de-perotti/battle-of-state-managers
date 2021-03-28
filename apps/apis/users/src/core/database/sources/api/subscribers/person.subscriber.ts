@@ -1,5 +1,4 @@
 import {
-  Connection,
   EntitySubscriberInterface,
   EventSubscriber,
   InsertEvent,
@@ -9,10 +8,6 @@ import { Person } from '../entities/person.entity';
 
 @EventSubscriber()
 export class PersonSubscriber implements EntitySubscriberInterface<Person> {
-  constructor(private readonly connection: Connection) {
-    connection.subscribers.push(this);
-  }
-
   listenTo() {
     return Person;
   }

@@ -1,10 +1,10 @@
 import { Injectable, Scope } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { getConnection, Repository } from 'typeorm';
 import { User } from '../../core/database/sources/api/entities/user.entity';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Person } from '../../core/database/sources/api/entities/person.entity';
 import { SaltService } from '../../core/encryption/salt/salt.service';
 import { NewAccountDto } from './new-account.dto';
+import { ConnectionConfigProvider } from '../../core/database/sources/api/connection/connection-config.provider';
 
 /**
  * @mermaid
@@ -32,13 +32,17 @@ import { NewAccountDto } from './new-account.dto';
  */
 @Injectable({ scope: Scope.REQUEST })
 export class AccountInteractor {
+  private readonly personRepository: Repository<Person>;
+  private readonly userRepository: Repository<User>;
+
   constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-    @InjectRepository(Person)
-    private readonly personRepository: Repository<Person>,
+    private readonly connectionConfigProvider: ConnectionConfigProvider,
     private readonly saltService: SaltService
-  ) {}
+  ) {
+    const connection = getConnection(this.connectionConfigProvider.config.name);
+    this.personRepository = connection.getRepository<Person>(Person);
+    this.userRepository = connection.getRepository<User>(User);
+  }
 
   private user: User;
 

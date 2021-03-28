@@ -4,12 +4,12 @@
   "username": "user",
   "port": 5432,
   "password": "password",
-  "database": "api_development",
-  "maxQueryExecutionTime": 200,
+  "database": "development",
+  "maxQueryExecutionTime": 2000,
   "migrationsTransactionMode": "each",
   "migrations": ["apps/apis/users/src/core/database/sources/api/migrations/*.ts"],
   "entities": ["apps/apis/users/src/core/database/sources/api/entities/**/*.entity.ts"],
-  "logging": "all",
+  "logging": "error",
   "cli": {
     "entitiesDir": "apps/apis/users/src/core/database/sources/api/entities",
     "migrationsDir": "apps/apis/users/src/core/database/sources/api/migrations"
